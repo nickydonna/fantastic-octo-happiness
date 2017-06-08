@@ -56,3 +56,8 @@ There are many routers for react. I choose this because it's just components, no
 
 It has a simple, really declarative API, and it makes the routes the "react way", with composable components.
 
+### Redux Observables
+
+Even though this app is small and a side effects library is not really necessary, using one can really help keep your app testeable and scalable.
+
+Observables have a complex API and add some boilerplate to the application but once you understand how they work, its really easy to know whats happening and its simple to debug.

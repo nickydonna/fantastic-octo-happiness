@@ -1,5 +1,9 @@
 // @flow
+import { combineReducers } from 'redux';
+import auth from './auth';
 
-const reducer = (state: State, action: GenericAction) => state;
+const reducer =  combineReducers({
+  auth,
+});
 
 export default reducer;

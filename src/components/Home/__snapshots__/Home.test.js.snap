@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Home page 1`] = `
+<div
+  className="gqseAW"
+>
+  <div
+    className="fSnuyn"
+  >
+    Hello
+  </div>
+</div>
+`;

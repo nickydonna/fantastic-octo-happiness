@@ -9,7 +9,7 @@ exports[`renders the login page 1`] = `
   >
     <a
       className="btn btn-primary"
-      href="https://accounts.spotify.com/authorize?client_id=89b92773702c4e36a8014a880e7a9b7d&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000"
+      href="https://accounts.spotify.com/authorize?client_id=89b92773702c4e36a8014a880e7a9b7d&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin"
       onClick={[Function]}
     >
       Login With Spotify
