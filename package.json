@@ -10,12 +10,15 @@
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-router-redux": "next",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0",
     "styled-components": "^1.4.6"
   },
   "devDependencies": {
     "@storybook/react": "^3.0.1",
+    "enzyme": "^2.8.2",
     "flow-bin": "^0.47.0",
+    "jest-styled-components": "^2.2.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {

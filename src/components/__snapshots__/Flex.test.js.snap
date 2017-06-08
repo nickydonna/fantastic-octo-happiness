@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a basic flex container 1`] = `
+
+
+<div
+  className="biDbSC"
+>
+  Flex Container
+</div>
+`;
+
+exports[`renders a basic flex item 1`] = `
+
+
+<div
+  className="fSnuyn"
+>
+  Flex Item
+</div>
+`;
+
+exports[`renders a flex container 1`] = `
+
+
+<div
+  className="gRhosR"
+  direction="column-reverse"
+  wrap="wrap-reverse"
+>
+  Flex Container
+</div>
+`;

@@ -1,18 +1,15 @@
 // @flow
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router';
 
-import { authUrl } from './utils/auth';
-
-import Button from './components/Button';
+import Login from './components/Login';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Button href={authUrl} primary>
-          Login With Spotify
-        </Button>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Login} />
+      </Switch>
     );
   }
 }
