@@ -2,13 +2,14 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
-import Button from './Button';
-import Welcome from './Welcome';
-
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+import Button from '../components/Button';
 
 storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+  .add('default', () => <Button onClick={action('clicked')}>default</Button>)
+  .add('primary', () => <Button primary onClick={action('clicked')}>primary</Button>)
+  .add('success', () => <Button success onClick={action('clicked')}>success</Button>)
+  .add('info', () => <Button info onClick={action('clicked')}>info</Button>)
+  .add('warning', () => <Button warning onClick={action('clicked')}>warning</Button>)
+  .add('danger', () => <Button danger onClick={action('clicked')}>danger</Button>)
+  .add('link', () => <Button link onClick={action('clicked')}>link</Button>);

@@ -1,5 +1,5 @@
 // @flow
 
-const reducer = (state, action) => state;
+const reducer = (state: State, action: GenericAction) => state;
 
 export default reducer;
