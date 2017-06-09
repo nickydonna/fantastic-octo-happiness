@@ -30,7 +30,7 @@ const auth = (action$: rxjs$Observable<GenericAction>, store: Store): rxjs$Obser
     .mapTo(push(routes.LOGIN)); // go to login
 
   const handleAuth$ = locationChangeToLogin$
-    .map(({ payload: { hash } }) => hash) // map to the hash
+    .map(({ payload: { hash } }: RouterAction) => hash) // map to the hash
     .filter(hash => !!hash) // filter if there is a hash
     .map(parseHash)
     .map(authenticate);

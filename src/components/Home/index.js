@@ -1,5 +1,5 @@
 // @flow
 
-import Home from './Home.component';
+import Home from './Home.container';
 
 export default Home;
