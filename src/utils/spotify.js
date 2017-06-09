@@ -15,8 +15,11 @@ const get = (url: string, authToken: string) =>
 
 const userProfile = (authToken: string) => get(url('me'), authToken);
 const userTracks = (authToken: string) => get(url('me/tracks'), authToken);
+const searchTracks = (query: string, authToken: string) => get(url(`search?q=${query}&type=track`), authToken);
+
 
 export {
   userProfile,
   userTracks,
+  searchTracks,
 };

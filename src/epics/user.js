@@ -2,12 +2,14 @@
 import { merge } from 'rxjs/observable/merge';
 import { combineEpics } from 'redux-observable';
 
-import { userProfile, userTracks } from '../utils/spotify';
+import { userProfile, searchTracks as spotifySearchTracks } from '../utils/spotify';
 
 import { getAuthToken } from '../reducers/auth';
 import { getUser } from '../reducers/user';
 import { loadUser } from '../actions/user';
-import { loadTracks } from '../actions/track';
+import { searchTracks, loadTracks } from '../actions/track';
+
+const SEARCH_TRACKS = searchTracks.toString();
 
 type SpotifyProfile = {
   birthdate: string,
@@ -49,12 +51,12 @@ const auth = (action$: rxjs$Observable<GenericAction>, store: Store): rxjs$Obser
     .map(formatUser)
     .map(loadUser);
 
-  const loadTracks$ = loadProfile$
-    .map(() => store.getState())
-    .map(state => getAuthToken(state))
-    .mergeMap((authToken: string) => userTracks(authToken))
-    .map(response => response.items)
-    .map(items => items.map(i => formatTrack(i.track)))
+  const loadTracks$ = action$
+    .filter(({ type }) => type === SEARCH_TRACKS)
+    .mergeMap(({ payload }: Action<string>) =>
+      spotifySearchTracks(payload, getAuthToken(store.getState())))
+    .map(response => response.tracks.items)
+    .map(items => items.map(formatTrack))
     .map(loadTracks);
 
   return merge(

@@ -21,7 +21,7 @@ class Preview extends PureComponent {
   props: Props;
 
   handlePlayingChanged = (playing: boolean) => () =>
-    this.setState(state => ({ ...state, playing }));
+    this.setState(state => ({ playing }));
 
   render() {
     const { playing } = this.state;
@@ -34,26 +34,32 @@ class Preview extends PureComponent {
 
     return (
       <div>
-        <Sound
-          url={previewUrl}
-          playStatus={playStatus}
-          onFinishedPlaying={this.handlePlayingChanged(false)}
-        />
-        <Button
-          primary={!playing} 
-          danger={playing}
-          onClick={this.handlePlayingChanged(!playing)} 
-        >
-          {playing
-            ? 'Stop'
-            : 'Play'
-          }
-        </Button>
+        {previewUrl &&
+          <div>
+            <Sound
+              url={previewUrl}
+              playStatus={playStatus}
+              onFinishedPlaying={this.handlePlayingChanged(false)}
+            />
+            <Button
+              primary={!playing}
+              danger={playing}
+              onClick={this.handlePlayingChanged(!playing)}
+            >
+              {playing
+                ? 'Stop'
+                : 'Preview'
+              }
+            </Button>
+          </div>
+        }
+        {!previewUrl &&
+          <Button disabled>
+            No Preview
+          </Button>
+        }
       </div>
-
-    )
-
-
+    );
   }
 }
 
