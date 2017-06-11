@@ -6,11 +6,18 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import Login from '../Login';
 import Home from '../Home';
 
+type Props = {
+  user?: User,
+};
+
 class App extends Component {
+
+  props: Props;
 
   logout = () => window.location.reload();
 
   render() {
+    const { user } = this.props;
     return (
       <div>
         <Navbar collapseOnSelect>
@@ -18,13 +25,15 @@ class App extends Component {
             <Navbar.Brand>
               <span>Tinderfy</span>
             </Navbar.Brand>
-            <Navbar.Toggle />
+            {user && <Navbar.Toggle />}
           </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              <NavItem onClick={this.logout}>Logout</NavItem>
-            </Nav>
-          </Navbar.Collapse>
+          {user &&
+            <Navbar.Collapse>
+              <Nav pullRight>
+                <NavItem onClick={this.logout}>Logout</NavItem>
+              </Nav>
+            </Navbar.Collapse>
+          }
         </Navbar>
         <Switch>
           <Route path="/login" component={Login} />
