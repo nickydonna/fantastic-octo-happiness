@@ -1,21 +1,21 @@
 // @flow
 import { combineEpics } from 'redux-observable';
+import type { Store } from 'redux';
 
-import { searchTracks as spotifySearchTracks } from '../utils/spotify';
+import { recommendTracks } from '../utils/spotify';
 
-import { getAuthToken } from '../reducers/auth';
-import { searchTracks, loadTracks } from '../actions/track';
+import { loadUser } from '../actions/user';
+import { loadTracks } from '../actions/track';
 
-import { formatTrack } from './helpers';
+import { formatTrack, getAuthToken } from './helpers';
 
-const SEARCH_TRACKS = searchTracks.toString();
+const LOAD_USER = loadUser.toString();
 
-const track = (action$: rxjs$Observable<GenericAction>, store: Store): rxjs$Observable<GenericAction> => {
+const track = (action$: rxjs$Observable<GenericAction>, store: Store<State, GenericAction>): rxjs$Observable<GenericAction> => {
   const loadTracks$ = action$
-    .filter(({ type }) => type === SEARCH_TRACKS)
-    .mergeMap(({ payload }: Action<string>) =>
-      spotifySearchTracks(payload, getAuthToken(store.getState())))
-    .map(response => response.tracks.items)
+    .filter(({ type }) => type === LOAD_USER)
+    .mergeMap(() => recommendTracks(getAuthToken(store)))
+    .map(response => response.tracks)
     .map(items => items.map(formatTrack))
     .map(loadTracks);
 

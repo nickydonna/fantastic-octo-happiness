@@ -12,14 +12,15 @@
  * 
  * It should be fixed eventually see: https://github.com/facebook/flow/issues/1414
  */
+import _ from 'lodash';
 import request from 'superagent'
 import observify from 'superagent-rxjs'
 
 // mutates superagent's Request.prototype and adds the .observify() method to it
 observify(request);
 
-const url = (path: string) =>  `https://api.spotify.com/v1/${path}`;
-const get = (url: string, authToken?: string = ''): rxjs$Observable<any> => 
+const url = (path: string) => `https://api.spotify.com/v1/${path}`;
+const get = (url: string, authToken?: string = ''): rxjs$Observable<any> =>
   request.get(url)
     .set('Authorization', `Bearer ${authToken}`)
     .set('Accept', 'application/json')
@@ -28,11 +29,19 @@ const get = (url: string, authToken?: string = ''): rxjs$Observable<any> =>
 
 const userProfile = (authToken?: string) => get(url('me'), authToken);
 const userTracks = (authToken?: string) => get(url('me/tracks'), authToken);
-const searchTracks = (query: string, authToken?: string) => get(url(`search?q=${query}&type=track`), authToken);
+const searchTracks = (query: string, authToken?: string) =>
+  get(url(`search?q=${query}&type=track`), authToken);
 
+const recommendTracks = (authToken?: string) =>
+  get(url('recommendations/available-genre-seeds'), authToken)
+    .map(({ genres }: { genres: string[] }) =>
+      _(genres).shuffle().take(5).value().join(','))
+    .mergeMap((genres: string) =>
+      get(url(`recommendations?seed_genres=${genres}&limit=100`), authToken));
 
 export {
   userProfile,
   userTracks,
   searchTracks,
+  recommendTracks,
 };

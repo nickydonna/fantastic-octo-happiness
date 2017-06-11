@@ -1,10 +1,12 @@
 // @flow 
-
 /**
  * Spotify Object have a lot more properties
  * We only define the ones we need
  * That is also the reason we transform the objects, we don't want unused properties in our store
  */
+
+import type { Store } from 'redux';
+import { getAuthToken as selectAuthToken } from '../reducers/auth';
 
 type SpotifyProfile = {
   birthdate: string,
@@ -45,7 +47,11 @@ const formatTrack = ({ id, name, popularity, preview_url, artists}: SpotifyTrack
   artists: artists.map(({ id, name }: { id: string, name: string }) => ({ id, name })),
 });
 
+const getAuthToken = (store: Store<State, GenericAction>) =>
+  selectAuthToken(store.getState());
+
 export {
   formatTrack,
   formatUser,
+  getAuthToken
 };
