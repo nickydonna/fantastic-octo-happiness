@@ -24,11 +24,7 @@ exports[`renders a flex container 1`] = `
 
 
 <div
-  alignItems="center"
   className="gRhosR"
-  direction="column-reverse"
-  justifyContent="center"
-  wrap="wrap-reverse"
 >
   Flex Container
 </div>

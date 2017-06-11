@@ -36,11 +36,19 @@ const parseHash = (hash: string): string => {
   const strippedHash = last(hash.split('#'));
   const { access_token } = qs.parse(strippedHash);
   return access_token;
-} 
+};
 
 const url = (path: string) => `https://api.spotify.com/v1/${path}`;
 const get = (url: string, authToken?: string = ''): rxjs$Observable<any> =>
   request.get(url)
+    .set('Authorization', `Bearer ${authToken}`)
+    .set('Accept', 'application/json')
+    .observify()
+    .map(response => response.body);
+
+const put = (url: string, body: any, authToken?: string = '') =>
+  request.put(url)
+    .send(body)
     .set('Authorization', `Bearer ${authToken}`)
     .set('Accept', 'application/json')
     .observify()
@@ -55,9 +63,13 @@ const getRecommendedTracks = (authToken?: string) =>
     .mergeMap((genres: string) =>
       get(url(`recommendations?seed_genres=${genres}&limit=100`), authToken));
 
+const putTrackInLibrary = ({ id }: Track, authToken?: string) =>
+  put(url(`me/tracks`), { ids: [id] }, authToken);
+
 export {
   authUrl,
   parseHash,
   getUserProfile,
   getRecommendedTracks,
+  putTrackInLibrary,
 };

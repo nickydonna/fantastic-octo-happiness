@@ -3,11 +3,9 @@
 exports[`renders the Home page 1`] = `
 <div
   className="gqseAW"
-  justifyContent="center"
 >
   <div
     className="dcRNys"
-    flex="0 0 400px"
   >
     Hello 
     <ul />

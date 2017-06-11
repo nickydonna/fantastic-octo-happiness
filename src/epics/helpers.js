@@ -45,6 +45,7 @@ const formatTrack = ({ id, name, popularity, preview_url, artists}: SpotifyTrack
   popularity,
   previewUrl: preview_url,
   artists: artists.map(({ id, name }: { id: string, name: string }) => ({ id, name })),
+  liked: false,
 });
 
 const getAuthToken = (store: Store<State, GenericAction>) =>

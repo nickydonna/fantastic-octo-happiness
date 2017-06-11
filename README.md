@@ -61,3 +61,93 @@ It has a simple, really declarative API, and it makes the routes the "react way"
 Even though this app is small and a side effects library is not really necessary, using one can really help keep your app testeable and scalable.
 
 Observables have a complex API and add some boilerplate to the application but once you understand how they work, its really easy to know whats happening and its simple to debug.
+
+# State
+
+> A section describing how the state is designed
+
+For handling state we have to take three things in account:
+
+* Minimal Representation of the app state
+* Normalization
+* Selectors
+
+## Minimal Representation
+
+When we desing our app we shouldn't add everything to the app state. We want to have the least amount of data possible in that. There are two reasons: **performace** and **maintainability**
+
+### Perfomance
+
+> Premature optimization is the root of **all evil**
+
+Even thought we should be concerned with perfomance until we need to, we should be careful of not doing the exact opposite, making everything slow.
+
+If our state is small, there are less updates to it, that means less react re-renders.
+
+### Maintainability
+Big states are harder to keep "up to date", meaning that our selectors will handle a lot of actions.
+
+Ideally, an action should be handled only by one reducers, if you don't do this, is not an issue, but you should think twice when doing it.
+
+If every update in your inputs is sent to your Redux Store the app perfomance will drop dramatically and it will be really hard to mantain.
+
+## Normalization
+
+Even thought at first glance normalizing data may seem more work, it actually helps a lot. It mostly helps to make updates faster and simpler. Example:
+
+Using our app as example, our state save the tracks, here are the two examples:
+
+### Not normalized reducer
+```
+// state = { tracks: Track[] }
+
+function reducer ({ tracks } = { tracks: [] }, { type, payload }) {
+  switch (type) {
+    case 'LOAD_TRACKS':
+      const newTracks = tracks.concat(payload);
+      // We use Lodash#uniqBy, tracking uniq values in an Array<Object> is messier than in an array of Array<string>
+      const uniqTracks = uniqBy(newTracks, t => t.id);
+      return { ...state, tracks: uniqTracks };
+    case 'TRACK_LIKED':
+      const newTracks = tracks.map(track => {
+        if (track.id !== payload.id) return track;
+        return {
+          ...track,
+          liked: true,
+        }
+      })
+      return { ...state, tracks: uniqTracks };
+    default:
+      return state
+  }
+});
+```
+
+### Normalized Reducer
+```
+// state = { tracks: string[], tracksById: { [x:string]: Track } }
+
+function reducer ({ tracks, tracksById } = { tracks: [], tracksById: {} }, { type, payload }) {
+  switch (type) {
+    case 'LOAD_TRACKS':
+      const uniqTracks = uniq(payload.map(t => t.id)); // We use Lodash#uniq
+      const newTracksById = {}
+      payload.forEach(track => newTracksById[track.id] = track);
+      const allTracksById = { ...tracksById, newTracksById };
+      return { ...state, tracks: uniqTracks, tracksById: allTracksById };
+    case 'TRACK_LIKED':
+      const { id } = payload;
+      const track = { ...tracksById[id], liked: true };
+      const newTracksById = { ...tracksById, [id]: track }
+      return { ...state, tracksById: newTracksById };
+    default:
+      return state
+  }
+});
+```
+
+When you see the two formats, the first one seems a lot simpler, but check in TRACK_LIKED, we had to map over all the tracks, even though is a simple operation, if we have many records, is a heavy operation for a simple update.
+
+Also in the LOAD_TRACKS, we have to be sure about uniqueness, we use **Lodash** to make it simpler in both cases, but in the Normalized one we could use and **ES6 Set** (like this `Array.from(new Set(array));`), that we couldn't use in the not normalized one.
+
+There are a lot of better examples, like when searching for a **given track by id**, or updating nested objects (when normalizing we would split the data in two reducers or properties)

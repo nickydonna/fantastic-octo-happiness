@@ -27,6 +27,7 @@ declare type Track = {
   popularity: number,
   previewUrl: string,
   artists: Artist[],
+  liked: boolean,
 }
 
 declare type AuthState = {
@@ -38,7 +39,8 @@ declare type UserState = {
 };
 
 declare type TrackState = {
-  tracks: Track[],
+  tracks: string[],
+  tracksById: { [x: string]: Track },
 };
 
 declare type State = {

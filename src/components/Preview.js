@@ -12,6 +12,13 @@ type State = {
   playing: boolean
 };
 
+const generateButtonText = (url?: string, playing: boolean) => {
+  if (!url) return 'No Preview Available';
+  return playing
+    ? 'Stop'
+    : 'Preview';
+}
+
 
 class Preview extends PureComponent {
 
@@ -33,32 +40,21 @@ class Preview extends PureComponent {
       : Sound.status.STOPPED;
 
     return (
-      <div>
+      <Button
+        disabled={!previewUrl}
+        primary={!playing}
+        danger={playing}
+        onClick={this.handlePlayingChanged(!playing)}
+      >
         {previewUrl &&
-          <div>
-            <Sound
-              url={previewUrl}
-              playStatus={playStatus}
-              onFinishedPlaying={this.handlePlayingChanged(false)}
-            />
-            <Button
-              primary={!playing}
-              danger={playing}
-              onClick={this.handlePlayingChanged(!playing)}
-            >
-              {playing
-                ? 'Stop'
-                : 'Preview'
-              }
-            </Button>
-          </div>
+          <Sound
+            url={previewUrl}
+            playStatus={playStatus}
+            onFinishedPlaying={this.handlePlayingChanged(false)}
+          />
         }
-        {!previewUrl &&
-          <Button disabled>
-            No Preview
-          </Button>
-        }
-      </div>
+        {generateButtonText(previewUrl, playing)}
+      </Button>
     );
   }
 }
