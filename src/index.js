@@ -15,7 +15,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/mergeMapTo';
 
-import App from './App';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import reducer from './reducers';
 import epic from './epics';

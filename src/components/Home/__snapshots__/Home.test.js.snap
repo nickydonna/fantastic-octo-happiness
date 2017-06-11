@@ -5,9 +5,40 @@ exports[`renders the Home page 1`] = `
   className="gqseAW"
 >
   <div
-    className="fSnuyn"
+    className="dcRNys"
   >
-    Hello
+    Hello 
+    <form
+      className="form-inline"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+          htmlFor="searchForm"
+        >
+          Search Tracks
+        </label>
+        <input
+          className="form-control"
+          id="searchForm"
+          onChange={[Function]}
+          placeholder="Enter your query ..."
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn-success"
+        disabled={false}
+        type="submit"
+      >
+        Search
+      </button>
+    </form>
+    <ul />
   </div>
 </div>
 `;

@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 it('renders the Home page', () => {
   const tree = renderer.create(
-    <Home />
+    <Home tracks={[]}/>
   ).toJSON()
   expect(tree).toMatchSnapshot();
 });
