@@ -15,9 +15,28 @@
 import _ from 'lodash';
 import request from 'superagent'
 import observify from 'superagent-rxjs'
+import qs from 'qs';
+import { last } from 'lodash';
 
 // mutates superagent's Request.prototype and adds the .observify() method to it
 observify(request);
+
+const scopeArray = [
+  'user-library-read',
+  'user-read-email',
+  'user-library-modify',
+];
+const scopes = encodeURIComponent(scopeArray.join(' '));
+const clientId = '89b92773702c4e36a8014a880e7a9b7d';
+const redirectUri = encodeURIComponent('http://localhost:3000/login');
+const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes}`;
+
+// hash is the hash value staring with #, i.e.: #access_token=...
+const parseHash = (hash: string): string => {
+  const strippedHash = last(hash.split('#'));
+  const { access_token } = qs.parse(strippedHash);
+  return access_token;
+} 
 
 const url = (path: string) => `https://api.spotify.com/v1/${path}`;
 const get = (url: string, authToken?: string = ''): rxjs$Observable<any> =>
@@ -27,12 +46,9 @@ const get = (url: string, authToken?: string = ''): rxjs$Observable<any> =>
     .observify()
     .map(response => response.body);
 
-const userProfile = (authToken?: string) => get(url('me'), authToken);
-const userTracks = (authToken?: string) => get(url('me/tracks'), authToken);
-const searchTracks = (query: string, authToken?: string) =>
-  get(url(`search?q=${query}&type=track`), authToken);
+const getUserProfile = (authToken?: string) => get(url('me'), authToken);
 
-const recommendTracks = (authToken?: string) =>
+const getRecommendedTracks = (authToken?: string) =>
   get(url('recommendations/available-genre-seeds'), authToken)
     .map(({ genres }: { genres: string[] }) =>
       _(genres).shuffle().take(5).value().join(','))
@@ -40,8 +56,8 @@ const recommendTracks = (authToken?: string) =>
       get(url(`recommendations?seed_genres=${genres}&limit=100`), authToken));
 
 export {
-  userProfile,
-  userTracks,
-  searchTracks,
-  recommendTracks,
+  authUrl,
+  parseHash,
+  getUserProfile,
+  getRecommendedTracks,
 };

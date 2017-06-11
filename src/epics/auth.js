@@ -5,7 +5,7 @@ import { combineEpics } from 'redux-observable';
 import { push } from 'react-router-redux';
 import { LOCATION_CHANGE } from 'react-router-redux/reducer';
 
-import { parseHash } from '../utils/auth';
+import { parseHash } from '../utils/spotify';
 import * as routes from '../utils/routes';
 import { authenticate } from '../actions/auth';
 import { getAuthToken } from './helpers';

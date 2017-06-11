@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-import { authUrl } from '../../utils/auth';
+import { authUrl } from '../../utils/spotify';
 
 import Button from '../Button';
 import { FlexContainer, FlexItem } from '../Flex';
