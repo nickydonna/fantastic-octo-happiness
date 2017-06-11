@@ -1,6 +1,7 @@
 [ignore]
 .*/node_modules/.*/test/.*
 .*/node_modules/.*/native/.*
+.*/node_modules/styled-components/.*
 [include]
 
 [libs]

@@ -1,4 +1,5 @@
 // @flow
+import React from 'react';
 import styled from 'styled-components';
 
 type FlexItemProps = {
@@ -12,13 +13,13 @@ type FlexContainerProps = {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse',
 };
 
-const applyFlexItem = (Component: string | ReactClass<any>) => styled(Component) `
+const applyFlexItem = (Component: ReactClass<any>) => styled(Component) `
   flex: ${({ flex }: FlexItemProps) => flex || 0};
 `;
 
-const FlexItem = applyFlexItem('div');
+const FlexItem = applyFlexItem(props => <div {...props} />);
 
-const applyFlexContainer = (Component: string | ReactClass<any>) => styled(Component) `
+const applyFlexContainer = (Component: ReactClass<any>) => styled(Component) `
   display: flex;
   align-items: ${({ alignItems = 'stretch' }: FlexContainerProps) => alignItems};
   flex-wrap: ${({ wrap = 'nowrap' }: FlexContainerProps) => wrap};
@@ -26,7 +27,7 @@ const applyFlexContainer = (Component: string | ReactClass<any>) => styled(Compo
   flex-direction: ${({ direction = 'row' }: FlexContainerProps) => direction};
 `;
 
-const FlexContainer = applyFlexContainer('div');
+const FlexContainer = applyFlexContainer(props => <div {...props} />);
 
 export {
   applyFlexContainer,
