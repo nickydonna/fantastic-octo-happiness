@@ -8,6 +8,8 @@ type Props = {
   user?: User,
   tracks: Track[],
   like: (track: Track) => any,
+  userLoading: boolean,
+  tracksLoading: boolean
 };
 
 class Home extends Component {
@@ -21,14 +23,22 @@ class Home extends Component {
     this.props.like(track);
 
   render() {
-    const { user = {}, tracks } = this.props;
+    const { user = {}, tracks, userLoading, tracksLoading } = this.props;
+    const loading = userLoading || tracksLoading;
 
     return (
       <FlexContainer justifyContent="center">
-        <FlexItem flex="0 0 400px">
-          Hello {user.name}
-          { tracks.length !== 0 && 
-            <SwipeableCards tracks={tracks} onSwipedRight={this.handleLike} />
+        <FlexItem flex="0 1 240">
+          {loading
+            ? <h2>Loading ...</h2>
+            : (
+              <div>
+                Hello {user.name}
+                {tracks.length !== 0 &&
+                  <SwipeableCards tracks={tracks} onSwipedRight={this.handleLike} />
+                }
+              </div>
+            )
           }
         </FlexItem>
       </FlexContainer>

@@ -10,6 +10,7 @@ const TRACK_LIKED = trackLiked.toString();
 const initialState = {
   tracks: [],
   tracksById: {},
+  loading: true,
 };
 
 /** SELECTORS */
@@ -17,6 +18,7 @@ const getTracks = (state: State): Track[] => {
   const { tracks, tracksById } = state.track;
   return tracks.map(id => tracksById[id]);
 };
+const getLoading = (state: State) => state.track.loading;
 /** SELECTORS */
 
 const reducer = handleActions({
@@ -29,7 +31,7 @@ const reducer = handleActions({
       ...state.tracksById,
       ...fromPairs(payload.map(p => [p.id, p])),
     };
-    return { ...state, tracks, tracksById };
+    return { ...state, tracks, tracksById, loading: false };
   },
   [TRACK_LIKED]: (state: TrackState, { payload }: Action<Track>) => {
     const { id } = payload;
@@ -48,4 +50,5 @@ const reducer = handleActions({
 export default reducer;
 export {
   getTracks,
+  getLoading,
 };

@@ -38,11 +38,13 @@ declare type AuthState = {
 
 declare type UserState = {
   user?: User,
+  loading: boolean,
 };
 
 declare type TrackState = {
   tracks: string[],
   tracksById: { [x: string]: Track },
+  loading: boolean,
 };
 
 declare type State = {
