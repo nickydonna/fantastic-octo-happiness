@@ -5,7 +5,7 @@ import { authenticate } from '../actions/auth';
 
 const AUTHENTICATE = authenticate.toString();
 
-const initialState = { authToken: 'BQB3IMRtpnGwLsU02ATFwT0hbnmgy_JEaiZhfkaw3Qh9yufX_W8KxTrqO2kxNVkAGgwLzY2DvPTtTdvxkto2Fg4E4vaHFzDCJqjNZ2gw0mJyXgMQbCqIgNHqSXKkIP0byK-rpcqt34KXkr3y_Em3t4Y6QQdS2siweNjrHA' };
+const initialState = { authToken: 'BQB5YCZ52bagqIxghsLK12636JTyJIoHK6-92eouge83aL--qczL2M177FKYPM-BNp2B73wLxSl_IW_0ys9LPCYVJkJoocYHJUGuppIWLIAqAdVv-DBPmYL9tkXyfKzAm0ryfp4FKAr7NUaKaAFj-a_az2PXCPOJ0oyFeA' };
 
 /** SELECTORS */
 const getAuthToken = (state: State) => state.auth.authToken;

@@ -25,9 +25,11 @@ declare type Track = {
   id: string,
   name: string,
   popularity: number,
-  previewUrl: string,
+  previewUrl?: string,
   artists: Artist[],
   liked: boolean,
+  image: string,
+  album: string,
 }
 
 declare type AuthState = {

@@ -3,6 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import addSwipeableCardStories from './SwipeableCard';
+
 import Button from '../components/Button';
 
 storiesOf('Button', module)
@@ -13,3 +15,5 @@ storiesOf('Button', module)
   .add('warning', () => <Button warning onClick={action('clicked')}>warning</Button>)
   .add('danger', () => <Button danger onClick={action('clicked')}>danger</Button>)
   .add('link', () => <Button link onClick={action('clicked')}>link</Button>);
+
+addSwipeableCardStories();

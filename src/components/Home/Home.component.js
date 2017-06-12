@@ -1,10 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import { ButtonGroup } from 'react-bootstrap';
 
 import { FlexContainer, FlexItem } from '../Flex';
-import Preview from '../Preview';
-import Button from '../Button';
+import SwipeableCards from '../SwipeableCards';
 
 type Props = {
   user?: User,
@@ -19,7 +17,7 @@ class Home extends Component {
   handleChange = ({ target: { value } }: SyntheticInputEvent) =>
     this.setState(state => ({ search: value }));
 
-  handleLike = (track: Track) => () =>
+  handleLike = (track: Track) =>
     this.props.like(track);
 
   render() {
@@ -29,26 +27,9 @@ class Home extends Component {
       <FlexContainer justifyContent="center">
         <FlexItem flex="0 0 400px">
           Hello {user.name}
-
-          <ul>
-            {tracks.map(track =>
-              <li key={track.id}>
-                {track.name}
-                {' - '}
-                <small>
-                  {track.artists.map(a => a.name).join(', ')}
-                </small>
-                {' - '}
-                {track.liked && 'Me gusta!!'}
-                <div>
-                  <ButtonGroup>
-                    <Preview track={track} />
-                    <Button success onClick={this.handleLike(track)}>Like</Button>
-                  </ButtonGroup>
-                </div>
-              </li>
-            )}
-          </ul>
+          { tracks.length !== 0 && 
+            <SwipeableCards tracks={tracks} onSwipedRight={this.handleLike} />
+          }
         </FlexItem>
       </FlexContainer>
     )
