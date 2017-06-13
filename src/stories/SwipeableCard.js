@@ -40,6 +40,7 @@ const addStories = () => {
           tracks={tracks}
           onSwipedLeft={action('swippedLeft')}
           onSwipedRight={action('swippedRight')}
+          onLoadMore={action('loadMore')}
           onLike={action('Liked')}
         />
       </div>

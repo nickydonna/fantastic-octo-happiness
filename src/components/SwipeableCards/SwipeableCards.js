@@ -3,24 +3,15 @@ import React, { PureComponent } from 'react';
 import Swipe from 'react-swipe-component';
 import { Motion, spring, presets } from 'react-motion';
 
-import Card, { BackgroundCard } from './Card';
+import Card, { BackgroundCard } from '../Card';
 
 const { gentle } = presets;
-
-const emptyTrack: Track = {
-  id: 'empty',
-  name: 'No Track',
-  artists: [{ id: 'no artist', name: 'No Artist' }],
-  album: 'No Album',
-  image: '/no_cover.png',
-  liked: false,
-  popularity: 0,
-};
 
 type Props = {
   tracks: Track[],
   onSwipedLeft: (track: Track) => any,
   onSwipedRight: (track: Track) => any,
+  onLoadMore: () => any,
 };
 
 type State = {
@@ -89,8 +80,9 @@ class SwipeableCard extends PureComponent {
   }
 
   render() {
+    const { onLoadMore } = this.props;
     const { tracks } = this.state;
-    const [track = emptyTrack, nextTrack = emptyTrack] = tracks;
+    const [track, nextTrack] = tracks;
 
     return (
       <div>
@@ -100,37 +92,29 @@ class SwipeableCard extends PureComponent {
         >
           {({ rotate, translate, opacity }) =>
             <Swipe
-              key={track.id}
               nodeName="div"
               mouseSwipe
               onSwipedLeft={this.handleSwipeLeft(track)}
               onSwipedRight={this.handleSwipeRight(track)}
-              style={{
-                opacity,
-                transform: `rotate(${rotate}deg) translate3d(${translate}%, 0, 0)`,
-              }}
+              style={{ opacity, transform: `rotate(${rotate}deg) translate3d(${translate}%, 0, 0)` }}
             >
-              <Card track={track} />
+              <Card track={track} onLoadMore={onLoadMore} />
             </Swipe>
           }
         </Motion>
-        {nextTrack &&
-          <Motion
-            defaultStyle={defaultNextStyle}
-            style={this.enterMotionStyle()}
-            onRest={this.handleOnRest}
-          >
-            {({ scale, opacity }) =>
-              <BackgroundCard
-                style={{
-                  opacity,
-                  transform: `scale(${scale})`,
-                }}
-                track={nextTrack}
-              />
-            }
-          </Motion>
-        }
+        <Motion
+          defaultStyle={defaultNextStyle}
+          style={this.enterMotionStyle()}
+          onRest={this.handleOnRest}
+        >
+          {({ scale, opacity }) =>
+            <BackgroundCard
+              style={{ opacity, transform: `scale(${scale})` }}
+              onLoadMore={onLoadMore}
+              track={nextTrack}
+            />
+          }
+        </Motion>
       </div>
     );
   }

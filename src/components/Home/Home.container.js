@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import type { Dispatch } from 'redux';
 
-import { likeTrack } from '../../actions/track';
+import { likeTrack, recommendTracks } from '../../actions/track';
 import { getUser, getLoading as getUserLoading } from '../../reducers/user';
 import { getTracks, getLoading as getTracksLoading } from '../../reducers/track';
 
@@ -17,6 +17,7 @@ const mapStateToProps = (state: State) => ({
 
 const mapDispatchToState = (dispatch: Dispatch<GenericAction>) => ({
   like: (track: Track) => dispatch(likeTrack(track)),
+  recommendTracks: () => dispatch(recommendTracks()),
 });
 
 const container = connect(mapStateToProps, mapDispatchToState);

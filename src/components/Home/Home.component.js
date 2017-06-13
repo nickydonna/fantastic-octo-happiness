@@ -10,7 +10,8 @@ type Props = {
   tracks: Track[],
   like: (track: Track) => any,
   userLoading: boolean,
-  tracksLoading: boolean
+  tracksLoading: boolean,
+  recommendTracks: () => any,
 };
 
 type State = {
@@ -37,7 +38,7 @@ class Home extends Component {
   }
 
   render() {
-    const { user = {}, tracks, userLoading, tracksLoading } = this.props;
+    const { user = {}, tracks, userLoading, tracksLoading, recommendTracks } = this.props;
     const { showBadge } = this.state;
     const loading = userLoading || tracksLoading;
 
@@ -49,9 +50,11 @@ class Home extends Component {
             : (
               <div>
                 Hello {user.name}
-                {tracks.length !== 0 &&
-                  <SwipeableCards tracks={tracks} onSwipedRight={this.handleLike} />
-                }
+                <SwipeableCards
+                  tracks={tracks}
+                  onSwipedRight={this.handleLike}
+                  onLoadMore={recommendTracks}
+                />
                 <FloatingBadge show={showBadge} />
               </div>
             )

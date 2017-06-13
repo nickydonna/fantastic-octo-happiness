@@ -3,14 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { Thumbnail } from 'react-bootstrap';
 
-import Preview from '../Preview';
+import Preview from './Preview';
+import Button from './Button';
 
 const SizedThumbnail = styled(Thumbnail) `
   width: 240px;
   height: 378px;
 `;
 
-const ellipsis = (component: ReactClass<any>) => styled(component)`
+const ellipsis = (component: ReactClass<any>) => styled(component) `
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -20,12 +21,26 @@ const Header = ellipsis(({ children, ...props }) => <h3 {...props}>{children}</h
 const Paragraph = ellipsis(({ children, ...props }) => <p {...props}>{children}</p>);
 
 type CardProps = {
-  track: Track,
+  track?: Track,
   style?: any,
   className?: string,
+  onLoadMore?: () => {},
 };
 
-const Card = ({ track, style, className }: CardProps) => {
+const Card = ({ track, style, className, onLoadMore }: CardProps) => {
+  if (!track) {
+    const image = '/no_cover.png';
+    return (
+      <SizedThumbnail src={image} alt="No Cover" style={style} className={className}>
+        <Header>No More Tracks</Header>
+        <Paragraph>To load more Click:</Paragraph>
+        <div>
+          <Button spotify onClick={onLoadMore}>Load More</Button>
+        </div>
+      </SizedThumbnail>
+    )
+  }
+
   const { image, album, name, artists } = track;
   const artistsString = artists
     .map(({ name }) => name)
@@ -42,7 +57,7 @@ const Card = ({ track, style, className }: CardProps) => {
   );
 };
 
-Card.defaultProps = { style: {} };
+Card.defaultProps = { style: {}, onLoadMore: () => {} };
 
 const BackgroundCard = styled(Card) `
   position: relative;

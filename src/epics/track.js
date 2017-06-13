@@ -7,16 +7,17 @@ import { getRecommendedTracks, putTrackInLibrary } from '../utils/spotify';
 
 import { error } from '../actions/error';
 import { loadUser } from '../actions/user';
-import { loadTracks, likeTrack, trackLiked } from '../actions/track';
+import { loadTracks, likeTrack, trackLiked, recommendTracks } from '../actions/track';
 
 import { formatTrack, getAuthToken } from './helpers';
 
 const LOAD_USER = loadUser.toString();
 const LIKE_TRACK = likeTrack.toString();
+const RECOMMEND_TRACKS = recommendTracks.toString();
 
-const recommendTracks = (action$: rxjs$Observable<GenericAction>, store: Store<State, GenericAction>): rxjs$Observable<GenericAction> => {
+const recommendRandomTracks = (action$: rxjs$Observable<GenericAction>, store: Store<State, GenericAction>): rxjs$Observable<GenericAction> => {
   const loadTracks$ = action$
-    .filter(({ type }) => type === LOAD_USER) // if LOAD_USER action
+    .filter(({ type }) => type === LOAD_USER || type === RECOMMEND_TRACKS) // if LOAD_USER or RECOMMEND_TRACKS action 
     .mergeMap(() => getRecommendedTracks(getAuthToken(store))) // get Recommended Tracks from spotify
     .map(response => response.tracks)
     .map(items => items.map(formatTrack)) // format tracks
@@ -28,7 +29,7 @@ const recommendTracks = (action$: rxjs$Observable<GenericAction>, store: Store<S
 
 const saveTrackToLibrary = (action$: rxjs$Observable<GenericAction>, store: Store<State, GenericAction>): rxjs$Observable<GenericAction> => {
   const postToLibrary$ = action$
-    .filter(({ type }) => type === LIKE_TRACK) // if LOAD_USER action
+    .filter(({ type }) => type === LIKE_TRACK ) // if LOAD_USER action
     .mergeMap(({ payload }: Action<Track>) =>
       putTrackInLibrary(payload, getAuthToken(store)) // PUT to the spotity API
         .mapTo(payload) // We need the payload for the action so we map to it
@@ -41,6 +42,6 @@ const saveTrackToLibrary = (action$: rxjs$Observable<GenericAction>, store: Stor
 
 
 export default combineEpics(
-  recommendTracks,
+  recommendRandomTracks,
   saveTrackToLibrary
 );

@@ -2,10 +2,11 @@
 import { uniq, fromPairs } from 'lodash';
 import { handleActions } from 'redux-actions';
 
-import { loadTracks, trackLiked } from '../actions/track';
+import { loadTracks, trackLiked, recommendTracks } from '../actions/track';
 
 const LOAD_TRACKS = loadTracks.toString();
 const TRACK_LIKED = trackLiked.toString();
+const RECOMMEND_TRACKS = recommendTracks.toString();
 
 const initialState = {
   tracks: [],
@@ -23,14 +24,8 @@ const getLoading = (state: State) => state.track.loading;
 
 const reducer = handleActions({
   [LOAD_TRACKS]: (state: TrackState, { payload }: Action<Track[]>) => {
-    const tracks = uniq([
-      ...state.tracks,
-      ...payload.map(p => p.id),
-    ])
-    const tracksById = {
-      ...state.tracksById,
-      ...fromPairs(payload.map(p => [p.id, p])),
-    };
+    const tracks = payload.map(p => p.id);
+    const tracksById = fromPairs(payload.map(p => [p.id, p]));
     return { ...state, tracks, tracksById, loading: false };
   },
   [TRACK_LIKED]: (state: TrackState, { payload }: Action<Track>) => {
@@ -45,6 +40,7 @@ const reducer = handleActions({
     }
     return { ...state, tracksById };
   },
+  [RECOMMEND_TRACKS]: (state: TrackState) => ({ ...state, loading: true }),
 }, initialState);
 
 export default reducer;
