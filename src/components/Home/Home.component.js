@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import { FlexContainer, FlexItem } from '../Flex';
 import SwipeableCards from '../SwipeableCards';
+import FloatingBadge from '../FloatingBadge';
 
 type Props = {
   user?: User,
@@ -12,18 +13,32 @@ type Props = {
   tracksLoading: boolean
 };
 
-class Home extends Component {
+type State = {
+  showBadge: boolean,
+};
 
+class Home extends Component {
+  state: State = { showBadge: false };
   props: Props;
 
-  handleChange = ({ target: { value } }: SyntheticInputEvent) =>
-    this.setState(state => ({ search: value }));
+  startTimeout = () => {
+    setTimeout(() =>
+      this.setState(state => ({ showBadge: false })),
+      750,
+    );
+  }
 
-  handleLike = (track: Track) =>
+  handleLike = (track: Track) => {
     this.props.like(track);
+    this.setState(
+      state => ({ showBadge: true }),
+      () => this.startTimeout()
+    );
+  }
 
   render() {
     const { user = {}, tracks, userLoading, tracksLoading } = this.props;
+    const { showBadge } = this.state;
     const loading = userLoading || tracksLoading;
 
     return (
@@ -37,6 +52,7 @@ class Home extends Component {
                 {tracks.length !== 0 &&
                   <SwipeableCards tracks={tracks} onSwipedRight={this.handleLike} />
                 }
+                <FloatingBadge show={showBadge} />
               </div>
             )
           }

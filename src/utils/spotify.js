@@ -21,6 +21,8 @@ import { last } from 'lodash';
 // mutates superagent's Request.prototype and adds the .observify() method to it
 observify(request);
 
+const green = '#1ED760';
+
 const scopeArray = [
   'user-library-read',
   'user-read-email',
@@ -68,6 +70,7 @@ const putTrackInLibrary = ({ id }: Track, authToken?: string) =>
   put(url('/me/tracks'), { ids: [id] }, authToken);
 
 export {
+  green,
   url,
   authUrl,
   parseHash,

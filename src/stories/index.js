@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import addSwipeableCardStories from './SwipeableCard';
+import addFloatingBadgeStories from './FloatingBadge';
 
 import Button from '../components/Button';
 
@@ -14,6 +15,8 @@ storiesOf('Button', module)
   .add('info', () => <Button info onClick={action('clicked')}>info</Button>)
   .add('warning', () => <Button warning onClick={action('clicked')}>warning</Button>)
   .add('danger', () => <Button danger onClick={action('clicked')}>danger</Button>)
-  .add('link', () => <Button link onClick={action('clicked')}>link</Button>);
+  .add('link', () => <Button link onClick={action('clicked')}>link</Button>)
+  .add('spotify', () => <Button spotify onClick={action('clicked')}>Spotify</Button>);
 
+addFloatingBadgeStories();
 addSwipeableCardStories();

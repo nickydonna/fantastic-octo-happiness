@@ -44,7 +44,7 @@ exports[`renders a basic button 1`] = `
           </p>
           <div>
             <button
-              className="btn btn-primary"
+              className="hwXEhS btn btn-primary"
               disabled={false}
               onClick={[Function]}
               type="button"
@@ -85,7 +85,7 @@ exports[`renders a basic button 1`] = `
         </p>
         <div>
           <button
-            className="btn btn-primary"
+            className="hwXEhS btn btn-primary"
             disabled={false}
             onClick={[Function]}
             type="button"

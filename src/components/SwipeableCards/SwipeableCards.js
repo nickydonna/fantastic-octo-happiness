@@ -82,8 +82,8 @@ class SwipeableCard extends PureComponent {
         this.setState(state => {
           const { tracks, processedTracks } = this.state;
           const [track, ...others] = tracks;
-          const newProceseed = processedTracks.concat([track]);
-          return { processedTracks: newProceseed, tracks: others };
+          const newProcessed = processedTracks.concat([track]);
+          return { processedTracks: newProcessed, tracks: others };
         })
       });
   }

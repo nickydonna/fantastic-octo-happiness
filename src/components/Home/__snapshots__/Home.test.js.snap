@@ -9,6 +9,7 @@ exports[`renders the Home page 1`] = `
   >
     <div>
       Hello 
+      <div />
     </div>
   </div>
 </div>

@@ -2,18 +2,26 @@
 
 exports[`renders the login page 1`] = `
 <div
-  className="gqseAW"
+  className="leaXny jumbotron"
 >
-  <div
-    className="fSnuyn"
-  >
+  <h1>
+    Welcome to Tinderfy!
+  </h1>
+  <p>
+    This application will recommend Spotify songs, and you can add them to your library by swiping write or ignore them by swiping left.
+  </p>
+  <p>
+    To continue you must give us access to your Spotify data.
+  </p>
+  <p>
     <a
-      className="btn btn-primary"
+      className="btJprl btn btn-lg"
       href="https://accounts.spotify.com/authorize?client_id=89b92773702c4e36a8014a880e7a9b7d&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin&scope=user-library-read%20user-read-email%20user-library-modify"
       onClick={[Function]}
+      spotify={true}
     >
-      Login With Spotify
+      Continue With Spotify
     </a>
-  </div>
+  </p>
 </div>
 `;

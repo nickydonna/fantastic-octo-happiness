@@ -2,7 +2,7 @@
 
 exports[`renders a basic button 1`] = `
 <button
-  className="btn"
+  className="hwXEhS btn"
   disabled={false}
   type="button"
 >
@@ -12,7 +12,7 @@ exports[`renders a basic button 1`] = `
 
 exports[`renders a danger button 1`] = `
 <button
-  className="btn btn-danger"
+  className="hwXEhS btn btn-danger"
   disabled={false}
   type="button"
 >
@@ -22,7 +22,7 @@ exports[`renders a danger button 1`] = `
 
 exports[`renders a info button 1`] = `
 <button
-  className="btn btn-info"
+  className="hwXEhS btn btn-info"
   disabled={false}
   type="button"
 >
@@ -32,7 +32,7 @@ exports[`renders a info button 1`] = `
 
 exports[`renders a link button 1`] = `
 <button
-  className="btn btn-link"
+  className="hwXEhS btn btn-link"
   disabled={false}
   type="button"
 >
@@ -42,7 +42,7 @@ exports[`renders a link button 1`] = `
 
 exports[`renders a primary button 1`] = `
 <button
-  className="btn btn-primary"
+  className="hwXEhS btn btn-primary"
   disabled={false}
   type="button"
 >
@@ -52,7 +52,7 @@ exports[`renders a primary button 1`] = `
 
 exports[`renders a success button 1`] = `
 <button
-  className="btn btn-success"
+  className="hwXEhS btn btn-success"
   disabled={false}
   type="button"
 >
@@ -62,7 +62,7 @@ exports[`renders a success button 1`] = `
 
 exports[`renders a warning button 1`] = `
 <button
-  className="btn btn-warning"
+  className="hwXEhS btn btn-warning"
   disabled={false}
   type="button"
 >
