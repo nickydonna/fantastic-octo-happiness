@@ -1,4 +1,3 @@
-import { isEqual } from 'lodash';
 import configureMockStore from 'redux-mock-store';
 import { createEpicMiddleware } from 'redux-observable';
 import nock from 'nock';
