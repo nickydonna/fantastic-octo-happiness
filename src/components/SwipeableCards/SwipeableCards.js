@@ -10,7 +10,7 @@ const { gentle } = presets;
 const emptyTrack: Track = {
   id: 'empty',
   name: 'No Track',
-  artists: [{ name: 'No Artist' }],
+  artists: [{ id: 'no artist', name: 'No Artist' }],
   album: 'No Album',
   image: '/no_cover.png',
   liked: false,
