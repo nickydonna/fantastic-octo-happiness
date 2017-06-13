@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the Home page 1`] = `
+exports[`renders the Home page with tracks 1`] = `
 <div
   className="gqseAW"
 >
@@ -9,6 +9,205 @@ exports[`renders the Home page 1`] = `
   >
     <div>
       Hello 
+      <div>
+        <div
+          className={null}
+          onMouseDown={[Function]}
+          onMouseMove={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          onTransitionEnd={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+              "transform": "rotate(0deg) translate3d(0%, 0, 0)",
+            }
+          }
+        >
+          <div
+            className="HWqKs thumbnail"
+            style={Object {}}
+          >
+            <img
+              alt="An Album"
+              src="https://i.scdn.co/image/81aa003fb60a031abe1f72253cf663cff201ad48"
+            />
+            <div
+              className="caption"
+            >
+              <h3
+                className="duAZJV"
+              >
+                Subwoofer Lullaby
+              </h3>
+              <p
+                className="duAZJV"
+              >
+                C418
+                 - 
+                An Album
+              </p>
+              <div>
+                <button
+                  className="hwXEhS btn btn-primary"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Preview
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="dMXyYF HWqKs thumbnail"
+          style={
+            Object {
+              "opacity": 0,
+              "transform": "scale(0.75)",
+            }
+          }
+        >
+          <img
+            alt="Any Which Way EP"
+            src="https://i.scdn.co/image/1e732874b19b8853dccd29a0e68959af87c8c1d5"
+          />
+          <div
+            className="caption"
+          >
+            <h3
+              className="duAZJV"
+            >
+              Any Which Way - Martin Buttrich Red Mix
+            </h3>
+            <p
+              className="duAZJV"
+            >
+              Stacey Pullen
+               - 
+              Any Which Way EP
+            </p>
+            <div>
+              <button
+                className="hwXEhS btn btn-primary"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders the Home page without tracks 1`] = `
+<div
+  className="gqseAW"
+>
+  <div
+    className="ejnNlj"
+  >
+    <div>
+      Hello 
+      <div>
+        <div
+          className={null}
+          onMouseDown={[Function]}
+          onMouseMove={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          onTransitionEnd={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+              "transform": "rotate(0deg) translate3d(0%, 0, 0)",
+            }
+          }
+        >
+          <div
+            className="HWqKs thumbnail"
+            style={Object {}}
+          >
+            <img
+              alt="No Cover"
+              src="/no_cover.png"
+            />
+            <div
+              className="caption"
+            >
+              <h3
+                className="duAZJV"
+              >
+                No More Tracks
+              </h3>
+              <p
+                className="duAZJV"
+              >
+                To load more Click:
+              </p>
+              <div>
+                <button
+                  className="btJprl btn"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Load More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="dMXyYF HWqKs thumbnail"
+          style={
+            Object {
+              "opacity": 0,
+              "transform": "scale(0.75)",
+            }
+          }
+        >
+          <img
+            alt="No Cover"
+            src="/no_cover.png"
+          />
+          <div
+            className="caption"
+          >
+            <h3
+              className="duAZJV"
+            >
+              No More Tracks
+            </h3>
+            <p
+              className="duAZJV"
+            >
+              To load more Click:
+            </p>
+            <div>
+              <button
+                className="btJprl btn"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Load More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div />
     </div>
   </div>

@@ -1,5 +1,5 @@
 // @flow
-import { uniq, fromPairs } from 'lodash';
+import { fromPairs } from 'lodash';
 import { handleActions } from 'redux-actions';
 
 import { loadTracks, trackLiked, recommendTracks } from '../actions/track';
