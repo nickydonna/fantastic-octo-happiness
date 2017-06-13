@@ -10,7 +10,8 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/catch';
 
 type LocationChangeOptions = {
   search?: string,
@@ -26,6 +27,19 @@ const locationChange = (pathname: string, options: LocationChangeOptions = {}) =
     };
 }
 
+const timeout = (fn: () => any): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(fn());
+      } catch (e) {
+        reject(e);
+      }
+    }, 100);
+  })
+}
+
 export {
   locationChange,
+  timeout
 };

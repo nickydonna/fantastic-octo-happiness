@@ -38,7 +38,7 @@ const parseHash = (hash: string): string => {
   return access_token;
 };
 
-const url = (path: string) => `https://api.spotify.com/v1/${path}`;
+const url = (path: string = '') => `https://api.spotify.com/v1${path}`;
 const get = (url: string, authToken?: string = ''): rxjs$Observable<any> =>
   request.get(url)
     .set('Authorization', `Bearer ${authToken}`)
@@ -54,19 +54,21 @@ const put = (url: string, body: any, authToken?: string = '') =>
     .observify()
     .map(response => response.body);
 
-const getUserProfile = (authToken?: string) => get(url('me'), authToken);
+const getUserProfile = (authToken?: string) => get(url('/me'), authToken);
 
-const getRecommendedTracks = (authToken?: string) =>
-  get(url('recommendations/available-genre-seeds'), authToken)
+const getRecommendedTracks = (authToken?: string) => {
+  return get(url('/recommendations/available-genre-seeds'), authToken)
     .map(({ genres }: { genres: string[] }) =>
       _(genres).shuffle().take(5).value().join(','))
     .mergeMap((genres: string) =>
-      get(url(`recommendations?seed_genres=${genres}&limit=100`), authToken));
+      get(url(`/recommendations?seed_genres=${genres}&limit=100`), authToken));
+};
 
 const putTrackInLibrary = ({ id }: Track, authToken?: string) =>
-  put(url(`me/tracks`), { ids: [id] }, authToken);
+  put(url('/me/tracks'), { ids: [id] }, authToken);
 
 export {
+  url,
   authUrl,
   parseHash,
   getUserProfile,
