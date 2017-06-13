@@ -8,12 +8,16 @@ import FloatingBadge from '../components/FloatingBadge';
 class FloatingBadgeParent extends React.Component {
   state = { show: true };
 
+  timeoutId: ?number;
+
   startTimeout() {
-    setTimeout(() => this.setState(state => ({ show: false })), 2000);
+    this.clearTimeout();
+    this.timeoutId = setTimeout(() => this.setState(state => ({ show: false })), 2000);
   }
 
-  componentDidMount() {
-    this.startTimeout();
+  clearTimeout() {
+    if (!this.timeoutId) return;
+    clearTimeout(this.timeoutId);
   }
 
   showBadge = () => {
@@ -21,6 +25,14 @@ class FloatingBadgeParent extends React.Component {
       state => ({ show: true }), // show
       () => this.startTimeout()  // after rendering, trigger timeout
     )
+  }
+
+  componentDidMount() {
+    this.startTimeout();
+  }
+
+  componentWillUnmount() {
+    this.clearTimeout();
   }
 
   render() {

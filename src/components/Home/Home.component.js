@@ -22,11 +22,19 @@ class Home extends Component {
   state: State = { showBadge: false };
   props: Props;
 
-  startTimeout = () => {
-    setTimeout(() =>
+  timeoutId: ?number;
+
+  startTimeout() {
+    this.clearTimeout();
+    this.timeoutId = setTimeout(() =>
       this.setState(state => ({ showBadge: false })),
       750,
     );
+  }
+
+  clearTimeout () {
+    if (!this.timeoutId) return;
+    clearTimeout(this.timeoutId);
   }
 
   handleLike = (track: Track) => {
@@ -35,6 +43,10 @@ class Home extends Component {
       state => ({ showBadge: true }),
       () => this.startTimeout()
     );
+  }
+
+  componentWillUnmount() {
+    this.clearTimeout();
   }
 
   render() {
