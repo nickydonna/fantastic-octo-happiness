@@ -50,6 +50,7 @@ class Preview extends PureComponent {
         primary={!playing}
         danger={playing}
         onClick={this.handlePlayingChanged(!playing)}
+        onTouchEnd={this.handlePlayingChanged(!playing)}
       >
         {previewUrl && env !== 'test' &&
           <Sound
