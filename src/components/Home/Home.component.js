@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import { FlexContainer, FlexItem } from '../Flex';
 import SwipeableCards from '../SwipeableCards';
@@ -51,7 +52,7 @@ class Home extends Component {
     );
   }
 
-  clearTimeout () {
+  clearTimeout() {
     if (!this.timeoutId) return;
     clearTimeout(this.timeoutId);
   }
@@ -79,14 +80,20 @@ class Home extends Component {
           {loading
             ? (
               <Loading>
-                <img className="logo" src="/tinderfy.png" alt="Tinderfy"/>
+                <Helmet>
+                  <title>Loading - Tinderfy</title>
+                </Helmet>
+                <img className="logo" src="/tinderfy.png" alt="Tinderfy" />
                 <h2>
                   Loading
-                  <img className="loading" src="/audio.svg" alt="loading"/>
+                  <img className="loading" src="/audio.svg" alt="loading" />
                 </h2>
               </Loading>
             ) : (
               <div>
+                <Helmet>
+                  <title>Tinderfy</title>
+                </Helmet>
                 <SwipeableCards
                   tracks={tracks}
                   onSwipedRight={this.handleLike}

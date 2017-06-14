@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Jumbotron } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 
 import { authUrl } from '../../utils/spotify';
 
@@ -30,6 +31,9 @@ class Login extends Component {
   render() {
     return (
       <PaddedJumbotron >
+        <Helmet>
+          <title>Login - Tinderfy</title>
+        </Helmet>
         <TinderfyImg src="/tinderfy.png" alt="Tinderfy" />
         <h2>Welcome to Tinderfy!</h2>
         <p>
