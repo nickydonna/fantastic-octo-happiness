@@ -13,6 +13,8 @@ type State = {
   playing: boolean
 };
 
+const env = process.env.NODE_ENV || 'development';
+
 const generateButtonText = (url?: string, playing: boolean) => {
   if (!url) return 'No Preview Available';
   return playing
@@ -49,7 +51,7 @@ class Preview extends PureComponent {
         danger={playing}
         onClick={this.handlePlayingChanged(!playing)}
       >
-        {previewUrl &&
+        {previewUrl && env !== 'test' &&
           <Sound
             url={previewUrl}
             playStatus={playStatus}
