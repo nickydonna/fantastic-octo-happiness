@@ -62,7 +62,6 @@ Card.defaultProps = { style: {}, onLoadMore: () => {} };
 const BackgroundCard = styled(Card) `
   position: relative;
   margin-top: -398px;
-  z-index: -1;
 `;
 
 export default Card;

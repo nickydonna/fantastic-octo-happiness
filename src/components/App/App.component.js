@@ -1,13 +1,33 @@
 // @flow
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import styled from 'styled-components';
 
 import Login from '../Login';
 import Home from '../Home';
+import Button from '../Button';
+import { applyFlexContainer, FlexItem } from '../Flex';
+
+const FullHeight = styled.div`height: 100%;`;
+const FullHeightContainer = applyFlexContainer(FullHeight);
+const FloatingButton = styled(Button)`
+  float: right;
+  top: 15px;
+  right: 10px
+  color: white;
+  position: absolute;
+`;
+const TinderfyLogo = styled.img`
+  float: left;
+  width: 25px;
+  height: auto;
+  top: 10px;
+  left: 10px;
+  position: absolute
+`
 
 type Props = {
-  user?: User,
+  isLogged: boolean,
 };
 
 class App extends Component {
@@ -17,29 +37,26 @@ class App extends Component {
   logout = () => window.location.reload();
 
   render() {
-    const { user } = this.props;
+    const { isLogged } = this.props;
     return (
-      <div>
-        <Navbar collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <span>Tinderfy</span>
-            </Navbar.Brand>
-            {user && <Navbar.Toggle />}
-          </Navbar.Header>
-          {user &&
-            <Navbar.Collapse>
-              <Nav pullRight>
-                <NavItem onClick={this.logout}>Logout</NavItem>
-              </Nav>
-            </Navbar.Collapse>
-          }
-        </Navbar>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </div>
+      <FullHeight>
+        {isLogged &&
+          <div>
+            <TinderfyLogo src="/tinderfy.png" alt="Tinderfy" />
+            <FloatingButton link onClick={this.logout}>
+              Logout
+            </FloatingButton>
+          </div>
+        }
+        <FullHeightContainer alignItems="center" justifyContent="center">
+          <FlexItem flex="0 0 350px">
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route exact path="/" component={Home} />
+            </Switch>
+          </FlexItem>
+        </FullHeightContainer>
+      </FullHeight>
     );
   }
 }

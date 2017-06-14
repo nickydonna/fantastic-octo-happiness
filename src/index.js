@@ -7,6 +7,8 @@ import { ConnectedRouter, routerMiddleware as createRouterMiddleware } from 'rea
 import { createEpicMiddleware } from 'redux-observable';
 import createHistory from 'history/createBrowserHistory';
 
+import './index.css';
+
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mapTo';

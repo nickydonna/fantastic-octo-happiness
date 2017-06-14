@@ -25,7 +25,8 @@ type Props = {
 const StyledButton = styled(props => <BSButton {...omit(props, ['spotify']) } />) `
   background-color: ${({ spotify }: Props) => spotify ? green : ''};
   color: ${({ spotify }: Props) => spotify ? '#000' : ''};
-  font-weight: ${({ spotify }: Props) => spotify ? 'bold' : ''};;
+  font-weight: ${({ spotify }: Props) => spotify ? 'bold' : ''};
+  font-family: ${({ spotify }: Props) => spotify ? "'Montserrat', sans-serif" : ''};
 `
 
 const bsStyle = ({ primary, success, info, warning, danger, link }: Props) => {

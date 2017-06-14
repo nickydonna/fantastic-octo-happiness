@@ -1,12 +1,12 @@
 // @flow
 import { connect } from 'react-redux';
 
-import { getUser } from '../../reducers/user';
+import { getAuthToken } from '../../reducers/auth';
 
 import App from './App.component';
 
 const mapStateToProps = (state: State) => ({
-  user: getUser(state),
+  isLogged: !!getAuthToken(state),
 });
 
 const container = connect(mapStateToProps);

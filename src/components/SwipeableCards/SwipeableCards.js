@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import Swipe from 'react-swipe-component';
 import { Motion, spring, presets } from 'react-motion';
+import styled from 'styled-components';
 
 import Card, { BackgroundCard } from '../Card';
 
@@ -19,6 +20,11 @@ type State = {
   processedTracks: Track[],
   animation: 'none' | 'swipeLeft' | 'swipeRight',
 };
+
+const PositionedSwipe = styled(Swipe)`
+  position: relative;
+  z-index: 2;
+`;
 
 const defaultCurrentStyle = { rotate: 0, translate: 0, opacity: 1 };
 const leftSwipeStyle = { rotate: spring(-13, gentle), translate: spring(-100, gentle), opacity: spring(0, gentle) }
@@ -91,7 +97,7 @@ class SwipeableCard extends PureComponent {
           style={this.swipeMotionStyle()}
         >
           {({ rotate, translate, opacity }) =>
-            <Swipe
+            <PositionedSwipe
               nodeName="div"
               mouseSwipe
               onSwipedLeft={this.handleSwipeLeft(track)}
@@ -99,7 +105,7 @@ class SwipeableCard extends PureComponent {
               style={{ opacity, transform: `rotate(${rotate}deg) translate3d(${translate}%, 0, 0)` }}
             >
               <Card track={track} onLoadMore={onLoadMore} />
-            </Swipe>
+            </PositionedSwipe>
           }
         </Motion>
         <Motion

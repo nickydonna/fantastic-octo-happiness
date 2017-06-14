@@ -3,6 +3,8 @@ import React, { PureComponent } from 'react';
 import { TransitionMotion, spring, presets } from 'react-motion';
 import styled from 'styled-components';
 
+import { green } from '../utils/spotify';
+
 const { gentle } = presets;
 
 type Props = {
@@ -11,17 +13,19 @@ type Props = {
 
 const Badge = styled.div`
   position: absolute;
-  backgroundColor: #5CB85C;
+  backgroundColor: ${green};
   width: 70px;
   height: 70px;
   border-radius: 35px;
+  top: 50%;
+  margin-top: -70px;
   left: 50%;
   margin-left: -35px;
-  top: 150px;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
 
   &>p {
     margin: 0;

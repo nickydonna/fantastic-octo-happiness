@@ -61,7 +61,6 @@ class Home extends Component {
             ? <h2>Loading ...</h2>
             : (
               <div>
-                Hello {user.name}
                 <SwipeableCards
                   tracks={tracks}
                   onSwipedRight={this.handleLike}

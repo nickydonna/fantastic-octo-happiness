@@ -8,26 +8,40 @@ import { authUrl } from '../../utils/spotify';
 import Button from '../Button';
 
 const PaddedJumbotron = styled(Jumbotron) `
-  padding-left: 25px;
-  padding-right: 25px;
-  margin-left: 25px
-  margin-right: 25px
+  padding: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+`;
+const TinderfyImg = styled.img`
+  display: block;
+  margin: 0 auto;
+  width: 64px;
+  height: auto;
+`;
+const SpotifyImg = styled.img`
+  width: 25px;
+  height: auto;
+  float: right;
+  margin-left: 15px;
 `;
 
 class Login extends Component {
   render() {
     return (
-      <PaddedJumbotron>
-        <h1>Welcome to Tinderfy!</h1>
+      <PaddedJumbotron >
+        <TinderfyImg src="/tinderfy.png" alt="Tinderfy" />
+        <h2>Welcome to Tinderfy!</h2>
         <p>
-          This application will recommend Spotify songs, and you can add them to your library by swiping write or ignore them by swiping left.
+          This application will recommend Spotify songs, and you can add them to your library by swiping right or ignore them by swiping left.
         </p>
         <p>
           To continue you must give us access to your Spotify data.
         </p>
         <p>
-          <Button href={authUrl} spotify lg>
+          <Button block href={authUrl} spotify lg>
             Continue With Spotify
+            <SpotifyImg src="/spotify.png" alt="spotify"/>
           </Button>
         </p>
       </PaddedJumbotron>
