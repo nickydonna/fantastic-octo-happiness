@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import { FlexContainer, FlexItem } from '../Flex';
 import SwipeableCards from '../SwipeableCards';
@@ -17,6 +18,24 @@ type Props = {
 type State = {
   showBadge: boolean,
 };
+
+const Loading = styled.div`
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+
+  img.logo {
+    width: 64px;
+    height: auto;
+    display:block;
+    margin: 0 auto;
+  }
+
+  img.loading {
+    height: 20px;
+    margin-left: 8px;
+  }
+`;
 
 class Home extends Component {
   state: State = { showBadge: false };
@@ -50,7 +69,7 @@ class Home extends Component {
   }
 
   render() {
-    const { user = {}, tracks, userLoading, tracksLoading, recommendTracks } = this.props;
+    const { tracks, userLoading, tracksLoading, recommendTracks } = this.props;
     const { showBadge } = this.state;
     const loading = userLoading || tracksLoading;
 
@@ -58,8 +77,15 @@ class Home extends Component {
       <FlexContainer justifyContent="center">
         <FlexItem flex="0 1 240">
           {loading
-            ? <h2>Loading ...</h2>
-            : (
+            ? (
+              <Loading>
+                <img className="logo" src="/tinderfy.png" alt="Tinderfy"/>
+                <h2>
+                  Loading
+                  <img className="loading" src="/audio.svg" alt="loading"/>
+                </h2>
+              </Loading>
+            ) : (
               <div>
                 <SwipeableCards
                   tracks={tracks}
