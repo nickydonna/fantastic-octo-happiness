@@ -28,9 +28,11 @@ const scopeArray = [
   'user-read-email',
   'user-library-modify',
 ];
+const { location } = window;
 const scopes = encodeURIComponent(scopeArray.join(' '));
 const clientId = '89b92773702c4e36a8014a880e7a9b7d';
-const redirectUri = encodeURIComponent('http://localhost:3000/login');
+const origin = location.origin || `${location.protocol}//${location.host}`; // because of a bug, some IE version don't have location.origin
+const redirectUri = encodeURIComponent(`${origin}/login`);
 const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes}`;
 
 // hash is the hash value staring with #, i.e.: #access_token=...

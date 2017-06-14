@@ -21,7 +21,7 @@ exports[`renders the login page 1`] = `
   <p>
     <a
       className="eDNaKO btn btn-lg btn-block"
-      href="https://accounts.spotify.com/authorize?client_id=89b92773702c4e36a8014a880e7a9b7d&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin&scope=user-library-read%20user-read-email%20user-library-modify"
+      href="https://accounts.spotify.com/authorize?client_id=89b92773702c4e36a8014a880e7a9b7d&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Flogin&scope=user-library-read%20user-read-email%20user-library-modify"
       onClick={[Function]}
     >
       Continue With Spotify
