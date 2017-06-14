@@ -3,13 +3,16 @@ import { createActions } from 'redux-actions';
 
 type AuthActions = {
   authenticate: (authToken: string) => Action<string>,
+  logout: () => Action<void>,
 };
 
 const {
   authenticate,
-}: AuthActions = createActions({}, 'AUTHENTICATE');
+  logout,
+}: AuthActions = createActions({}, 'AUTHENTICATE', 'LOGOUT');
 
 export type { AuthActions };
 export {
   authenticate,
+  logout,
 };
