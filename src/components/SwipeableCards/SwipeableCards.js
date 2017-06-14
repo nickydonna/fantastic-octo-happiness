@@ -100,6 +100,7 @@ class SwipeableCard extends PureComponent {
             <PositionedSwipe
               nodeName="div"
               mouseSwipe
+              delta={150}
               onSwipedLeft={this.handleSwipeLeft(track)}
               onSwipedRight={this.handleSwipeRight(track)}
               style={{ opacity, transform: `rotate(${rotate}deg) translate3d(${translate}%, 0, 0)` }}
