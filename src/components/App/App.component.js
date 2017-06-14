@@ -8,7 +8,15 @@ import Home from '../Home';
 import Button from '../Button';
 import { applyFlexContainer } from '../Flex';
 
-const FullHeight = styled.div`height: 100%;`;
+const FullHeight = styled.div`
+  height: 100%;
+
+  @media (max-height: 550px) {
+    .FullHeightContainer {
+      padding-top: 100px;
+    }
+  }
+`;
 const FullHeightContainer = applyFlexContainer(FullHeight);
 const AdaptableFlexItem = styled.div`
   flex: 1;
@@ -48,14 +56,14 @@ class App extends Component {
     return (
       <FullHeight>
         {isLogged &&
-          <div>
+          <div className="Navbar">
             <TinderfyLogo src="/tinderfy.png" alt="Tinderfy" />
             <FloatingButton link onClick={this.logout}>
               Logout
             </FloatingButton>
           </div>
         }
-        <FullHeightContainer alignItems="center" justifyContent="center">
+        <FullHeightContainer className="FullHeightContainer" alignItems="center" justifyContent="center">
           <AdaptableFlexItem>
             <Switch>
               <Route path="/login" component={Login} />

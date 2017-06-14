@@ -53,6 +53,7 @@ exports[`renders the Home page with tracks 1`] = `
                   className="jEtlWH btn btn-primary btn-block"
                   disabled={false}
                   onClick={[Function]}
+                  onTouchEnd={[Function]}
                   type="button"
                 >
                   Preview
@@ -97,6 +98,7 @@ exports[`renders the Home page with tracks 1`] = `
                 className="jEtlWH btn btn-primary btn-block"
                 disabled={false}
                 onClick={[Function]}
+                onTouchEnd={[Function]}
                 type="button"
               >
                 Preview

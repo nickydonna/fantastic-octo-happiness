@@ -47,6 +47,7 @@ exports[`renders a basic button 1`] = `
               className="jEtlWH btn btn-primary btn-block"
               disabled={false}
               onClick={[Function]}
+              onTouchEnd={[Function]}
               type="button"
             >
               Preview
@@ -91,6 +92,7 @@ exports[`renders a basic button 1`] = `
             className="jEtlWH btn btn-primary btn-block"
             disabled={false}
             onClick={[Function]}
+            onTouchEnd={[Function]}
             type="button"
           >
             Preview
