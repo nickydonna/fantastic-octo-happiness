@@ -1,0 +1,9 @@
+{
+  "name": "extensible",
+  "scripts": {
+    "start": "serve -s"
+  },
+  "dependencies": {
+    "serve": "latest"
+  }
+}
