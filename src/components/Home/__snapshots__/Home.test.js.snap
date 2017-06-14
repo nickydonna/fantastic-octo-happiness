@@ -8,10 +8,9 @@ exports[`renders the Home page with tracks 1`] = `
     className="ejnNlj"
   >
     <div>
-      Hello 
       <div>
         <div
-          className={null}
+          className="jCprYf"
           onMouseDown={[Function]}
           onMouseMove={[Function]}
           onMouseUp={[Function]}
@@ -27,7 +26,7 @@ exports[`renders the Home page with tracks 1`] = `
           }
         >
           <div
-            className="HWqKs thumbnail"
+            className="ivEioO thumbnail"
             style={Object {}}
           >
             <img
@@ -51,19 +50,22 @@ exports[`renders the Home page with tracks 1`] = `
               </p>
               <div>
                 <button
-                  className="hwXEhS btn btn-primary"
+                  className="jEtlWH btn btn-primary btn-block"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   Preview
+                  <span
+                    className="glyphicon glyphicon-play"
+                  />
                 </button>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="dMXyYF HWqKs thumbnail"
+          className="jAITJt ivEioO thumbnail"
           style={
             Object {
               "opacity": 0,
@@ -92,12 +94,15 @@ exports[`renders the Home page with tracks 1`] = `
             </p>
             <div>
               <button
-                className="hwXEhS btn btn-primary"
+                className="jEtlWH btn btn-primary btn-block"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
               >
                 Preview
+                <span
+                  className="glyphicon glyphicon-play"
+                />
               </button>
             </div>
           </div>
@@ -117,10 +122,9 @@ exports[`renders the Home page without tracks 1`] = `
     className="ejnNlj"
   >
     <div>
-      Hello 
       <div>
         <div
-          className={null}
+          className="jCprYf"
           onMouseDown={[Function]}
           onMouseMove={[Function]}
           onMouseUp={[Function]}
@@ -136,7 +140,7 @@ exports[`renders the Home page without tracks 1`] = `
           }
         >
           <div
-            className="HWqKs thumbnail"
+            className="ivEioO thumbnail"
             style={Object {}}
           >
             <img
@@ -158,19 +162,22 @@ exports[`renders the Home page without tracks 1`] = `
               </p>
               <div>
                 <button
-                  className="btJprl btn"
+                  className="brrDWI btn btn-block"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
                 >
                   Load More
+                  <span
+                    className="glyphicon glyphicon-refresh"
+                  />
                 </button>
               </div>
             </div>
           </div>
         </div>
         <div
-          className="dMXyYF HWqKs thumbnail"
+          className="jAITJt ivEioO thumbnail"
           style={
             Object {
               "opacity": 0,
@@ -197,12 +204,15 @@ exports[`renders the Home page without tracks 1`] = `
             </p>
             <div>
               <button
-                className="btJprl btn"
+                className="brrDWI btn btn-block"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
               >
                 Load More
+                <span
+                  className="glyphicon glyphicon-refresh"
+                />
               </button>
             </div>
           </div>

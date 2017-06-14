@@ -4,7 +4,7 @@ exports[`renders a basic button 1`] = `
 <div>
   <div>
     <div
-      className={null}
+      className="jCprYf"
       onMouseDown={[Function]}
       onMouseMove={[Function]}
       onMouseUp={[Function]}
@@ -20,7 +20,7 @@ exports[`renders a basic button 1`] = `
       }
     >
       <div
-        className="HWqKs thumbnail"
+        className="ivEioO thumbnail"
         style={Object {}}
       >
         <img
@@ -44,19 +44,22 @@ exports[`renders a basic button 1`] = `
           </p>
           <div>
             <button
-              className="hwXEhS btn btn-primary"
+              className="jEtlWH btn btn-primary btn-block"
               disabled={false}
               onClick={[Function]}
               type="button"
             >
               Preview
+              <span
+                className="glyphicon glyphicon-play"
+              />
             </button>
           </div>
         </div>
       </div>
     </div>
     <div
-      className="dMXyYF HWqKs thumbnail"
+      className="jAITJt ivEioO thumbnail"
       style={
         Object {
           "opacity": 0,
@@ -85,12 +88,15 @@ exports[`renders a basic button 1`] = `
         </p>
         <div>
           <button
-            className="hwXEhS btn btn-primary"
+            className="jEtlWH btn btn-primary btn-block"
             disabled={false}
             onClick={[Function]}
             type="button"
           >
             Preview
+            <span
+              className="glyphicon glyphicon-play"
+            />
           </button>
         </div>
       </div>
