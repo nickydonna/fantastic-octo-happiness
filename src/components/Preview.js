@@ -1,6 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import Sound from 'react-sound';
+import { Glyphicon } from 'react-bootstrap';
 
 import Button from './Button';
 
@@ -41,6 +42,8 @@ class Preview extends PureComponent {
 
     return (
       <Button
+        block
+        glyph
         disabled={!previewUrl}
         primary={!playing}
         danger={playing}
@@ -54,6 +57,7 @@ class Preview extends PureComponent {
           />
         }
         {generateButtonText(previewUrl, playing)}
+        <Glyphicon glyph={playing ? 'stop' : 'play'} />
       </Button>
     );
   }

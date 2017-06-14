@@ -19,15 +19,41 @@ type Props = {
   lg?: boolean,
   sm?: boolean,
   xs?: boolean,
+  glyph?: boolean,
   [x: string]: any,
 };
 
-const StyledButton = styled(props => <BSButton {...omit(props, ['spotify']) } />) `
+const StyledButton = styled(props => <BSButton {...omit(props, ['spotify', 'glyph']) } />) `
   background-color: ${({ spotify }: Props) => spotify ? green : ''};
   color: ${({ spotify }: Props) => spotify ? '#000' : ''};
-  font-weight: ${({ spotify }: Props) => spotify ? 'bold' : ''};
-  font-family: ${({ spotify }: Props) => spotify ? "'Montserrat', sans-serif" : ''};
-`
+  font-family: 'Montserrat', sans-serif;
+
+
+  &.btn-primary {
+    border: none;
+    background-color: #000;
+    &:hover {
+      border: none;
+    }
+  }
+
+  &.btn-danger {
+    background-color: #DB4C2C;
+    border: none;
+    &:hover {
+      border: none;
+    }
+  }
+
+  ${({ glyph }: Props) => glyph ? (`
+    .glyphicon {
+      float: right;
+      margin-top: 1px;
+    }
+  `) : (
+    ''
+  )}
+`;
 
 const bsStyle = ({ primary, success, info, warning, danger, link }: Props) => {
   if (primary) return 'primary';

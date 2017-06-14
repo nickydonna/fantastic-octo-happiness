@@ -19,10 +19,16 @@ const track = {
   liked: true,
 };
 
+const Wrapper = (({ children }) =>
+  <div style={{ backgroundColor: '#000', padding: 20}}>
+    {children}
+  </div>
+)
+
 const addStories = () => {
   storiesOf('Card', module)
-    .add('with Track', () => <Card track={track} onLoadMore={action('loadMore')} />)
-    .add('without Track', () => <Card onLoadMore={action('loadMore')} />);
+    .add('with Track', () => <Wrapper><Card track={track} onLoadMore={action('loadMore')} /></Wrapper>)
+    .add('without Track', () => <Wrapper><Card onLoadMore={action('loadMore')} /></Wrapper>);
 };
 
 export default addStories;

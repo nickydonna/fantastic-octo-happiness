@@ -1,14 +1,17 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Thumbnail } from 'react-bootstrap';
+import { Thumbnail, Glyphicon } from 'react-bootstrap';
 
 import Preview from './Preview';
 import Button from './Button';
 
 const SizedThumbnail = styled(Thumbnail) `
-  width: 240px;
-  height: 378px;
+  width: 300px;
+  height: 438px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  padding: 0;
+  border: none;
 `;
 
 const ellipsis = (component: ReactClass<any>) => styled(component) `
@@ -35,7 +38,10 @@ const Card = ({ track, style, className, onLoadMore }: CardProps) => {
         <Header>No More Tracks</Header>
         <Paragraph>To load more Click:</Paragraph>
         <div>
-          <Button spotify onClick={onLoadMore}>Load More</Button>
+          <Button block spotify glyph onClick={onLoadMore}>
+            Load More
+            <Glyphicon glyph="refresh"/>
+          </Button>
         </div>
       </SizedThumbnail>
     )
@@ -51,7 +57,7 @@ const Card = ({ track, style, className, onLoadMore }: CardProps) => {
       <Header>{name}</Header>
       <Paragraph>{artistsString} - {album}</Paragraph>
       <div>
-        <Preview track={track} />
+        <Preview block track={track} />
       </div>
     </SizedThumbnail>
   );
@@ -61,7 +67,7 @@ Card.defaultProps = { style: {}, onLoadMore: () => {} };
 
 const BackgroundCard = styled(Card) `
   position: relative;
-  margin-top: -398px;
+  margin-top: -458px;
 `;
 
 export default Card;
