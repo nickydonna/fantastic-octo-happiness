@@ -6,10 +6,17 @@ import styled from 'styled-components';
 import Login from '../Login';
 import Home from '../Home';
 import Button from '../Button';
-import { applyFlexContainer, FlexItem } from '../Flex';
+import { applyFlexContainer } from '../Flex';
 
 const FullHeight = styled.div`height: 100%;`;
 const FullHeightContainer = applyFlexContainer(FullHeight);
+const AdaptableFlexItem = styled.div`
+  flex: 1;
+
+  @media (min-width: 351px) {
+    flex: 0 1 350px;
+  }
+`
 const FloatingButton = styled(Button)`
   float: right;
   top: 15px;
@@ -49,12 +56,12 @@ class App extends Component {
           </div>
         }
         <FullHeightContainer alignItems="center" justifyContent="center">
-          <FlexItem flex="0 0 350px">
+          <AdaptableFlexItem>
             <Switch>
               <Route path="/login" component={Login} />
               <Route exact path="/" component={Home} />
             </Switch>
-          </FlexItem>
+          </AdaptableFlexItem>
         </FullHeightContainer>
       </FullHeight>
     );

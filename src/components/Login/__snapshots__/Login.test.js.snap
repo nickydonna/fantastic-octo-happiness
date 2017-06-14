@@ -2,7 +2,7 @@
 
 exports[`renders the login page 1`] = `
 <div
-  className="dVkyoe jumbotron"
+  className="fFesvB jumbotron"
 >
   <img
     alt="Tinderfy"

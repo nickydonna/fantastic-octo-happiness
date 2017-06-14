@@ -9,10 +9,13 @@ import { authUrl } from '../../utils/spotify';
 import Button from '../Button';
 
 const PaddedJumbotron = styled(Jumbotron) `
-  padding: 25px;
-  background-color: black;
   color: white;
-  border-radius: 8px;
+  padding: 10px;
+  background-color: #000000;
+
+  @media (min-width: 351px) {
+    padding: 25px;
+  }
 `;
 const TinderfyImg = styled.img`
   display: block;
