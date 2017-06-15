@@ -26,7 +26,7 @@ exports[`renders the Home page with tracks 1`] = `
           }
         >
           <div
-            className="ivEioO thumbnail"
+            className="Card ivEioO thumbnail"
             style={Object {}}
           >
             <img
@@ -142,7 +142,7 @@ exports[`renders the Home page without tracks 1`] = `
           }
         >
           <div
-            className="ivEioO thumbnail"
+            className="Card ivEioO thumbnail"
             style={Object {}}
           >
             <img

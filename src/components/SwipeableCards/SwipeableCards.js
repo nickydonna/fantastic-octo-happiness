@@ -105,7 +105,7 @@ class SwipeableCard extends PureComponent {
               onSwipedRight={this.handleSwipeRight(track)}
               style={{ opacity, transform: `rotate(${rotate}deg) translate3d(${translate}%, 0, 0)` }}
             >
-              <Card track={track} onLoadMore={onLoadMore} />
+              <Card track={track} onLoadMore={onLoadMore} className="Card" />
             </PositionedSwipe>
           }
         </Motion>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a basic button 1`] = `
+exports[`renders a card 1`] = `
 <div>
   <div>
     <div
@@ -20,7 +20,7 @@ exports[`renders a basic button 1`] = `
       }
     >
       <div
-        className="ivEioO thumbnail"
+        className="Card ivEioO thumbnail"
         style={Object {}}
       >
         <img
