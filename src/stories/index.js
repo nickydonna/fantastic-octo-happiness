@@ -6,6 +6,7 @@ import { action } from '@storybook/addon-actions';
 import addSwipeableCardStories from './SwipeableCard';
 import addFloatingBadgeStories from './FloatingBadge';
 import addCardStories from './Card';
+import addPreviewStories from './Preview';
 
 import Button from '../components/Button';
 
@@ -20,5 +21,6 @@ storiesOf('Button', module)
   .add('spotify', () => <Button spotify onClick={action('clicked')}>Spotify</Button>);
 
 addFloatingBadgeStories();
+addPreviewStories();
 addCardStories();
 addSwipeableCardStories();
