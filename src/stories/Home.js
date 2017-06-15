@@ -14,12 +14,22 @@ const Wrapper = ({ children }) =>
 
 const addStories = () => {
   storiesOf('Home', module)
-    .add('loading', () => <Wrapper><Home userLoading={true} tracksLoading={true} /></Wrapper>)
+    .add('loading', () =>
+      <Wrapper>
+        <Home
+          userLoading={true}
+          tracksLoading={true}
+          recommendTracks={action('recommendTracks')}
+          tracks={tracks}
+          like={action('like')}
+        />
+      </Wrapper>)
     .add('with tracks', () =>
       <Wrapper>
         <Home
           userLoading={false}
           tracksLoading={false}
+          recommendTracks={action('recommendTracks')}
           tracks={tracks}
           like={action('like')}
         />
@@ -30,6 +40,7 @@ const addStories = () => {
         <Home
           userLoading={false}
           tracksLoading={false}
+          recommendTracks={action('recommendTracks')}
           tracks={[]}
           like={action('like')}
         />
