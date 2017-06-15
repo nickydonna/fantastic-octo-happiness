@@ -178,3 +178,9 @@ When you see the two formats, the first one seems a lot simpler, but check in TR
 Also in the LOAD_TRACKS, we have to be sure about uniqueness, we use **Lodash** to make it simpler in both cases, but in the Normalized one we could use and **ES6 Set** (like this `Array.from(new Set(array));`), that we couldn't use in the not normalized one.
 
 There are a lot of better examples, like when searching for a **given track by id**, or updating nested objects (when normalizing we would split the data in two reducers or properties)
+
+# Missing
+
+This section details what this app is missing:
+
+* More Error handling.
