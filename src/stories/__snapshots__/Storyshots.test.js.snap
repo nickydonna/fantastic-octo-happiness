@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Button danger 1`] = `
+<button
+  className="cjBPpq btn btn-danger"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  danger
+</button>
+`;
+
+exports[`Storyshots Button default 1`] = `
+<button
+  className="cjBPpq btn"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  default
+</button>
+`;
+
+exports[`Storyshots Button info 1`] = `
+<button
+  className="cjBPpq btn btn-info"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  info
+</button>
+`;
+
+exports[`Storyshots Button link 1`] = `
+<button
+  className="cjBPpq btn btn-link"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  link
+</button>
+`;
+
+exports[`Storyshots Button primary 1`] = `
+<button
+  className="cjBPpq btn btn-primary"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  primary
+</button>
+`;
+
+exports[`Storyshots Button spotify 1`] = `
+<button
+  className="eDNaKO btn"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  Spotify
+</button>
+`;
+
+exports[`Storyshots Button success 1`] = `
+<button
+  className="cjBPpq btn btn-success"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  success
+</button>
+`;
+
+exports[`Storyshots Button warning 1`] = `
+<button
+  className="cjBPpq btn btn-warning"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  warning
+</button>
+`;
+
+exports[`Storyshots Card with Track 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#000",
+      "padding": 20,
+    }
+  }
+>
+  <div
+    className="ivEioO thumbnail"
+    style={Object {}}
+  >
+    <img
+      alt="An Album"
+      src="https://i.scdn.co/image/81aa003fb60a031abe1f72253cf663cff201ad48"
+    />
+    <div
+      className="caption"
+    >
+      <h3
+        className="duAZJV"
+      >
+        Subwoofer Lullaby
+      </h3>
+      <p
+        className="duAZJV"
+      >
+        C418
+         - 
+        An Album
+      </p>
+      <div>
+        <button
+          className="jEtlWH btn btn-primary btn-block"
+          disabled={false}
+          onClick={[Function]}
+          onTouchEnd={[Function]}
+          type="button"
+        >
+          Preview
+          <span
+            className="glyphicon glyphicon-play"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Card without Track 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#000",
+      "padding": 20,
+    }
+  }
+>
+  <div
+    className="ivEioO thumbnail"
+    style={Object {}}
+  >
+    <img
+      alt="No Cover"
+      src="/no_cover.png"
+    />
+    <div
+      className="caption"
+    >
+      <h3
+        className="duAZJV"
+      >
+        No More Tracks
+      </h3>
+      <p
+        className="duAZJV"
+      >
+        To load more Click:
+      </p>
+      <div>
+        <button
+          className="brrDWI btn btn-block"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Load More
+          <span
+            className="glyphicon glyphicon-refresh"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FloatingBadge autoHide (2000 ms) 1`] = `
+<div>
+  <div>
+    <div
+      className="bEQojQ"
+      style={
+        Object {
+          "opacity": 0,
+        }
+      }
+    >
+      <p>
+        Added
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FloatingBadge default 1`] = `
+<div>
+  <div
+    className="bEQojQ"
+    style={
+      Object {
+        "opacity": 0,
+      }
+    }
+  >
+    <p>
+      Added
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preview with previewUrl 1`] = `
+<button
+  className="jEtlWH btn btn-primary btn-block"
+  disabled={false}
+  onClick={[Function]}
+  onTouchEnd={[Function]}
+  type="button"
+>
+  Preview
+  <span
+    className="glyphicon glyphicon-play"
+  />
+</button>
+`;
+
+exports[`Storyshots Preview without previewUrl 1`] = `
+<button
+  className="jEtlWH btn btn-primary btn-block"
+  disabled={true}
+  onClick={[Function]}
+  onTouchEnd={[Function]}
+  type="button"
+>
+  No Preview Available
+  <span
+    className="glyphicon glyphicon-play"
+  />
+</button>
+`;
+
+exports[`Storyshots SwipeableCard basic 1`] = `
+<div
+  style={
+    Object {
+      "marginLeft": 25,
+    }
+  }
+>
+  <div>
+    <div
+      className="jCprYf"
+      onMouseDown={[Function]}
+      onMouseMove={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      onTransitionEnd={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "transform": "rotate(0deg) translate3d(0%, 0, 0)",
+        }
+      }
+    >
+      <div
+        className="Card ivEioO thumbnail"
+        style={Object {}}
+      >
+        <img
+          alt="An Album"
+          src="https://i.scdn.co/image/81aa003fb60a031abe1f72253cf663cff201ad48"
+        />
+        <div
+          className="caption"
+        >
+          <h3
+            className="duAZJV"
+          >
+            Subwoofer Lullaby
+          </h3>
+          <p
+            className="duAZJV"
+          >
+            C418
+             - 
+            An Album
+          </p>
+          <div>
+            <button
+              className="jEtlWH btn btn-primary btn-block"
+              disabled={false}
+              onClick={[Function]}
+              onTouchEnd={[Function]}
+              type="button"
+            >
+              Preview
+              <span
+                className="glyphicon glyphicon-play"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="jAITJt ivEioO thumbnail"
+      style={
+        Object {
+          "opacity": 0,
+          "transform": "scale(0.75)",
+        }
+      }
+    >
+      <img
+        alt="Any Which Way EP"
+        src="https://i.scdn.co/image/1e732874b19b8853dccd29a0e68959af87c8c1d5"
+      />
+      <div
+        className="caption"
+      >
+        <h3
+          className="duAZJV"
+        >
+          Any Which Way - Martin Buttrich Red Mix
+        </h3>
+        <p
+          className="duAZJV"
+        >
+          Stacey Pullen
+           - 
+          Any Which Way EP
+        </p>
+        <div>
+          <button
+            className="jEtlWH btn btn-primary btn-block"
+            disabled={false}
+            onClick={[Function]}
+            onTouchEnd={[Function]}
+            type="button"
+          >
+            Preview
+            <span
+              className="glyphicon glyphicon-play"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

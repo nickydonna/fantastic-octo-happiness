@@ -1,6 +1,5 @@
 import React from 'react';
 import SwipeableCards from './SwipeableCards';
-import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import sinon from 'sinon';
 
@@ -8,17 +7,6 @@ import tracks from '../../fixtures/tracks';
  
 const createClientXY = (x, y) => ({ clientX: x, clientY: y });
 const createTouchEventObject = (x = 0, y = 0) => ({ touches: [createClientXY(x, y)] });
-
-it('renders a card', () => {
-  const tree = renderer.create(
-    <div >
-      <SwipeableCards
-        tracks={tracks}
-      />
-    </div>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
 it('should call function on swipe left with the mouse', () => {
   const onSwipedLeft = sinon.spy();

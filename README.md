@@ -27,11 +27,6 @@ yarn start
 
 Just run: `yarn test`
 
-# Test
-
-Ideally we would use [Storyshots](https://github.com/storybooks/storybook/tree/master/addons/storyshots) to test the components but there is a bug that doesn't allows us to use it [StoryShots ReferenceError: unknown base.cacheDirectory](https://github.com/storybooks/storybook/issues/1254)
-
-
 ## Technologies
 
 This section aims to explain the decision behind some of the third party libraries I use in the project.
