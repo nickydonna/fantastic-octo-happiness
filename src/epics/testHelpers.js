@@ -17,6 +17,7 @@ type LocationChangeOptions = {
   search?: string,
   hash?: string
 };
+
 const locationChange = (pathname: string, options: LocationChangeOptions = {}) => {
   return {
       type: LOCATION_CHANGE,

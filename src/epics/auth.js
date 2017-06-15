@@ -33,8 +33,8 @@ const auth = (action$: rxjs$Observable<GenericAction>, store: Store<State, Gener
   const handleAuth$ = locationChangeToLogin$
     .map(({ payload: { hash = '' } }: RouterAction) => hash) // map to the hash
     .filter(hash => !!hash) // filter if there is a hash
-    .map(parseHash)
-    .map(authenticate);
+    .map(parseHash) // parse the hash
+    .map(authenticate); // dispatch AUTHENTICATE
 
   const redirectToHome$ = locationChangeToLogin$
     .map(() => getAuthToken(store)) // map to the auth token

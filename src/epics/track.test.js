@@ -1,3 +1,6 @@
+/**
+ * See the README#Superagent to understand the need for timeout
+ */
 import configureMockStore from 'redux-mock-store';
 import { createEpicMiddleware } from 'redux-observable';
 import nock from 'nock';
@@ -11,7 +14,6 @@ import { formatTrack } from '../epics/helpers';
 import track from './track';
 
 const initialState = { auth: { authToken: 'token' } };
-const mockUser = { id: 'id', name: 'name', images: [], email: 'email@domain.com' };
 const genres = [
   'acoustic',
   'alt-rock',

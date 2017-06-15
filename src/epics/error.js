@@ -20,13 +20,13 @@ const isUnauthorized = ({ payload }: ResponseAction) => payload.response.statusC
 
 const onError = (action$: rxjs$Observable<GenericAction>, store: Store<State, GenericAction>): rxjs$Observable<GenericAction> => {
   const httpErrors$ = action$
-    .filter(({ type }) => type === ERROR)
-    .filter(isHttpError);
+    .filter(({ type }) => type === ERROR) // If the action is ERROR
+    .filter(isHttpError); // if the Error is from superagent
 
   const logout$ = httpErrors$
-    .filter(isUnauthorized)
-    .do(() => window.location.reload())
-    .mapTo(logout());
+    .filter(isUnauthorized) // if the error is a 401
+    .do(() => window.location.reload()) // reload the page to reset the authToken
+    .mapTo(logout()); // dispatch LOGOUT, is actually not necessary, but it better to be consistet
 
 
   return logout$;
