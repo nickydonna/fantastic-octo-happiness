@@ -7,6 +7,8 @@ import addSwipeableCardStories from './SwipeableCard';
 import addFloatingBadgeStories from './FloatingBadge';
 import addCardStories from './Card';
 import addPreviewStories from './Preview';
+import addLoginStories from './Login';
+import addHomeStories from './Home';
 
 import Button from '../components/Button';
 
@@ -24,3 +26,5 @@ addFloatingBadgeStories();
 addPreviewStories();
 addCardStories();
 addSwipeableCardStories();
+addLoginStories();
+addHomeStories();
