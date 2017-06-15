@@ -6,18 +6,18 @@ import { Observable } from 'rxjs';
 import { getRecommendedTracks, putTrackInLibrary } from '../utils/spotify';
 
 import { error } from '../actions/error';
-import { loadUser } from '../actions/user';
+import { authenticate } from '../actions/auth';
 import { loadTracks, likeTrack, trackLiked, recommendTracks } from '../actions/track';
 
 import { formatTrack, getAuthToken } from './helpers';
 
-const LOAD_USER = loadUser.toString();
+const AUTHENTICATE = authenticate.toString();
 const LIKE_TRACK = likeTrack.toString();
 const RECOMMEND_TRACKS = recommendTracks.toString();
 
 const recommendRandomTracks = (action$: rxjs$Observable<GenericAction>, store: Store<State, GenericAction>): rxjs$Observable<GenericAction> => {
   const loadTracks$ = action$
-    .filter(({ type }) => type === LOAD_USER || type === RECOMMEND_TRACKS) // if LOAD_USER or RECOMMEND_TRACKS action 
+    .filter(({ type }) => type === AUTHENTICATE || type === RECOMMEND_TRACKS) // if LOAD_USER or RECOMMEND_TRACKS action 
     .mergeMap(() => getRecommendedTracks(getAuthToken(store))) // get Recommended Tracks from spotify
     .map(response => response.tracks)
     .map(items => items.map(formatTrack)) // format tracks

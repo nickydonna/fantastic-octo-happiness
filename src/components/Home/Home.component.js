@@ -8,10 +8,8 @@ import SwipeableCards from '../SwipeableCards';
 import FloatingBadge from '../FloatingBadge';
 
 type Props = {
-  user?: User,
   tracks: Track[],
   like: (track: Track) => any,
-  userLoading: boolean,
   tracksLoading: boolean,
   recommendTracks: () => any,
 };
@@ -70,9 +68,9 @@ class Home extends Component {
   }
 
   render() {
-    const { tracks, userLoading, tracksLoading, recommendTracks } = this.props;
+    const { tracks, tracksLoading, recommendTracks } = this.props;
     const { showBadge } = this.state;
-    const loading = userLoading || tracksLoading;
+    const loading = tracksLoading;
 
     return (
       <FlexContainer justifyContent="center">

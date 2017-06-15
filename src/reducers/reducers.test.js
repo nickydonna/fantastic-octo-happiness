@@ -7,7 +7,6 @@ import tracks from '../fixtures/tracks';
 const [trackOne, trackTwo] = tracks;
 const initialState = {
   auth: {},
-  user: { loading: true },
   track: {
     tracks: [],
     tracksById: {},

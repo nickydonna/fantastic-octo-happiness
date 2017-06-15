@@ -5,7 +5,7 @@ import nock from 'nock';
 import { timeout } from './testHelpers';
 
 import { url } from '../utils/spotify';
-import { loadUser } from '../actions/user';
+import { authenticate } from '../actions/auth';
 import { loadTracks, likeTrack, trackLiked } from '../actions/track';
 import { formatTrack } from '../epics/helpers';
 import track from './track';
@@ -81,7 +81,7 @@ describe('trackEpic', () => {
   describe('recommend Tracks', () => {
 
     it('should query the Spotify API and dispatch LOAD_TRACKS', () => {
-      const loadUserAction = loadUser(mockUser);
+      const loadUserAction = authenticate('token');
       const scopes = [
         nock(url())
           .get('/recommendations/available-genre-seeds')
