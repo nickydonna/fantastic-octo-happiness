@@ -88,6 +88,20 @@ exports[`Storyshots Button warning 1`] = `
 </button>
 `;
 
+exports[`Storyshots Button with icon 1`] = `
+<button
+  className="jEtlWH btn btn-primary"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  Play
+  <span
+    className="glyphicon glyphicon-play"
+  />
+</button>
+`;
+
 exports[`Storyshots Card with Track 1`] = `
 <div
   style={
